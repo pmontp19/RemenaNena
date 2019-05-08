@@ -12,10 +12,22 @@ import java.util.ArrayList;
  */
 public class Campanya {
     private String nom;
-    private boolean estat;
+    private boolean iniciada;
     private ArrayList<Etapa> forma;
     private ArrayList<Etapa> iniciades;
     private Etapa inicial;
+    
+    public Campanya(String nomCampanya,String nomEtapa){
+        nom = nomCampanya;
+        iniciada = false;
+        forma = new ArrayList<Etapa>();
+        iniciades = new ArrayList<Etapa>();
+        inicial = new Etapa(nomEtapa); 
+    }
+    
+    public void novaInicial(){
+        
+    }
     
     
 }

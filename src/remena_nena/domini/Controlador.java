@@ -12,7 +12,11 @@ import java.util.ArrayList;
  */
 public class Controlador {
      private ArrayList<Campanya> c;
-     private ArrayList<Etapa> e;
      private ArrayList<Meme> m;
+     
+     public Controlador(){
+         c = new ArrayList<Campanya>();
+         m = new ArrayList<Meme>();
+}
     
 }

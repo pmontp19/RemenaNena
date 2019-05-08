@@ -11,13 +11,20 @@ import java.util.ArrayList;
  */
 public class Etapa {
     private String nom;
-    private boolean estat;
+    private boolean iniciada;
     private int clics;
     private ArrayList<Meme> emès;
     private ArrayList<Meme> actiu;
     private ArrayList<Accio> lligam;
     
-    
+    public Etapa(String nomEtapa){
+        nom = nomEtapa;
+        iniciada = false;
+        clics = 0;
+        emès = new ArrayList<Meme>();
+        actiu = new ArrayList<Meme>();
+        lligam = new ArrayList<Accio>();
+    }
     
     
 }
