@@ -25,4 +25,8 @@ public class Meme {
         llibertat = new ArrayList<Enregistrament>();
     }
     
+    public String getMeme(){
+          return nom;
+      }
+    
 }

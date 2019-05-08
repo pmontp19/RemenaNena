@@ -24,10 +24,5 @@ public class Campanya {
         iniciades = new ArrayList<Etapa>();
         inicial = new Etapa(nomEtapa); 
     }
-    
-    public void novaInicial(){
-        
-    }
-    
-    
+       
 }
