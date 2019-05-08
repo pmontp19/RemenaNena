@@ -14,4 +14,10 @@ public class Accio {
     private boolean utilitzat;
     private ArrayList<Condicio> compleix;
     
+    public Accio(String idAccio){
+        id = idAccio;
+        utilitzat = false;
+        compleix = new ArrayList<Condicio>();
+    }
+    
 }

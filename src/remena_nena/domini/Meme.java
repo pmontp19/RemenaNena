@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package remena_nena.domini;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +14,15 @@ public class Meme {
     private String nom;
     private boolean lliure;
     private int clics;
+    private Enregistrament total;
+    private ArrayList<Enregistrament> llibertat;
     
+    public Meme(String idmeme){
+        nom = idmeme;
+        lliure = false;
+        clics = 0;  
+        total = new Enregistrament();
+        llibertat = new ArrayList<Enregistrament>();
+    }
     
 }

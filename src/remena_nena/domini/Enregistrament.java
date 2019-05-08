@@ -13,4 +13,9 @@ public class Enregistrament {
     private String id;
     private int clics;
     
+    public Enregistrament(){
+        id = java.util.UUID.randomUUID().toString();
+        clics = 0;
+    }
+    
 }
