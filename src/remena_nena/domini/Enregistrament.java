@@ -4,20 +4,13 @@
  * and open the template in the editor.
  */
 package remena_nena.domini;
-import java.util.ArrayList;
+
 /**
  *
  * @author victo
  */
-public class Etapa {
-    private String nom;
-    private boolean estat;
+public class Enregistrament {
+    private String id;
     private int clics;
-    private ArrayList<Meme> emès;
-    private ArrayList<Meme> actiu;
-    private ArrayList<Accio> lligam;
-    
-    
-    
     
 }

@@ -9,15 +9,9 @@ import java.util.ArrayList;
  *
  * @author victo
  */
-public class Etapa {
-    private String nom;
-    private boolean estat;
-    private int clics;
-    private ArrayList<Meme> emès;
-    private ArrayList<Meme> actiu;
-    private ArrayList<Accio> lligam;
-    
-    
-    
+public class Accio {
+    private String id;
+    private boolean utilitzat;
+    private ArrayList<Condicio> compleix;
     
 }

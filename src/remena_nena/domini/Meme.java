@@ -10,5 +10,9 @@ package remena_nena.domini;
  * @author victo
  */
 public class Meme {
+    private String nom;
+    private boolean lliure;
+    private int clics;
+    
     
 }
