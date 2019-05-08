@@ -5,17 +5,18 @@
  */
 package remena_nena.domini;
 import java.util.ArrayList;
-
 /**
  *
  * @author victo
  */
-public class Campanya {
+public class Etapa {
     private String nom;
     private boolean estat;
-    private ArrayList<Etapa> forma;
-    private ArrayList<Etapa> iniciades;
-    private Etapa inicial;
+    private int clics;
+    private ArrayList<Meme> emès;
+    private ArrayList<Meme> actiu;
+    
+    
     
     
 }

@@ -10,12 +10,9 @@ import java.util.ArrayList;
  *
  * @author victo
  */
-public class Campanya {
-    private String nom;
-    private boolean estat;
-    private ArrayList<Etapa> forma;
-    private ArrayList<Etapa> iniciades;
-    private Etapa inicial;
-    
+public class Controlador {
+     private ArrayList<Campanya> c;
+     private ArrayList<Etapa> e;
+     private ArrayList<Meme> m;
     
 }
