@@ -5,6 +5,8 @@
  */
 package remena_nena;
 import remena_nena.domini.*;
+import remena_nena.interficies.*;
+import remena_nena.pantalles.*;
 
 /**
  *
@@ -17,7 +19,11 @@ public class Remena_Nena {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Dades nova_informacio = new Dades();
+        Dades info_inicial = new Dades();
+        Controlador K = new Controlador(info_inicial);
+        FinestraInicial pantallaInicial = new FinestraInicial(K);
+        Inicial primera_pantalla = new Inicial(pantallaInicial);
+        primera_pantalla.setVisible(true);
     }
     
 }

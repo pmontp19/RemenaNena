@@ -43,5 +43,8 @@ public class Campanya {
        }
        if(!trobat) etapa_activa = null;
    }
+   public String getnom(){
+       return nom;
+   }
       
 }

@@ -40,5 +40,15 @@ public class Dades {
         m.add(me);
         me = new Meme("Candidat enemic plorant");
         m.add(me);
+        me = new Meme("Gestio terrible");
+        m.add(me);
+        me = new Meme("Gestió de crisis");
+        m.add(me);
+    }
+    public ArrayList<Campanya> obtenirCampanyes() {
+            return c;
+    }
+    public ArrayList<Meme> obtenirMemes(){
+        return m;
     }
 }

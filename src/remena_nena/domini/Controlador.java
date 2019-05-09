@@ -5,6 +5,7 @@
  */
 package remena_nena.domini;
 import java.util.ArrayList;
+import remena_nena.Dades;
 
 /**
  *
@@ -19,7 +20,13 @@ public class Controlador {
      public Controlador(){
          campanyes = new ArrayList<Campanya>();
          memes = new ArrayList<Meme>();
-     }    
+     }   
+     
+     public Controlador(Dades d){
+         campanyes = d.obtenirCampanyes();
+         memes = d.obtenirMemes();
+     }
+     
      public void novaInicial(String nomCampanya, String nomInicial){
          c_activa = new Campanya(nomCampanya,nomInicial); 
          campanyes.add(c_activa);
@@ -41,6 +48,13 @@ public class Controlador {
         }
      }
     
+    public ArrayList<Campanya> getCampanyes(){
+        return campanyes;
+    }
+    
+    public ArrayList<Meme> getMemes(){
+        return memes;
+    }
      
      //finds
     public Meme getMeme(String idMeme){
