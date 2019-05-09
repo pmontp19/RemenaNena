@@ -13,7 +13,18 @@ import remena_nena.domini.*;
  */
 public class FinestraCampanya {
     String nomCampanya;
+    String nomEtapa;
     ArrayList<Etapa> forma;
     Etapa inicial;
+    Controlador K;
     
+    
+   public FinestraCampanya(Controlador k){
+        K=k;
+        nomCampanya = "";
+        nomCampanya = new String();
+        nomEtapa = "";
+        nomEtapa = new String();
+        forma= new ArrayList<Etapa>();
+    }
 }
