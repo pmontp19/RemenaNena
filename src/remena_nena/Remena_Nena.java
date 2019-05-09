@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package remena_nena;
+import remena_nena.domini.*;
 
 /**
  *
@@ -16,6 +17,7 @@ public class Remena_Nena {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Dades nova_informacio = new Dades();
     }
     
 }

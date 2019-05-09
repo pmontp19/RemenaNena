@@ -26,5 +26,11 @@ public class Etapa {
         lligam = new ArrayList<Accio>();
     }
     
+    public void inserirMeme(Meme m){
+        emès.add(m);
+    }
+    public String getEtapa(){
+        return nom;
+    }
     
 }

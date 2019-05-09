@@ -21,12 +21,24 @@ public class Controlador {
          memes = new ArrayList<Meme>();
      }    
      public void novaInicial(String nomCampanya, String nomInicial){
-         c_activa = new Campanya(nomCampanya,nomInicial);   
+         c_activa = new Campanya(nomCampanya,nomInicial); 
+         campanyes.add(c_activa);
+         c_activa.etapaActiva(nomInicial);
          finalitzat = false;
      }
      public void indicarMeme(String idMeme){
          Meme m = getMeme(idMeme);
-         
+         if( m != null){
+             Etapa e = c_activa.obteEtapa();
+             e.inserirMeme(m);
+             finalitzat = true;
+         }
+     }
+     public void fiCampanya(){
+         if(finalitzat = true){
+             c_activa.fiEtapa();
+             c_activa = null;
+        }
      }
     
      
