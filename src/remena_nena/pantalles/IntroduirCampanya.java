@@ -4,21 +4,20 @@
  * and open the template in the editor.
  */
 package remena_nena.pantalles;
-import remena_nena.domini.*;
-import remena_nena.interficies.*;
+import remena_nena.Interficie.FinestraCampanya;
 
 /**
  *
  * @author victo
  */
 public class IntroduirCampanya extends javax.swing.JFrame {
-    FinestraCampanya s;
+    FinestraCampanya finCamp;
 
     /**
      * Creates new form IntroduirCampanya
      */
     public IntroduirCampanya(FinestraCampanya f) {
-        s = f;
+        finCamp = f;
         initComponents();
     }
 
@@ -33,13 +32,13 @@ public class IntroduirCampanya extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
+        nomCampanya = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        Sortir = new javax.swing.JButton();
-        Aceptar = new javax.swing.JButton();
+        nomEtapaInicial = new javax.swing.JTextField();
+        sortirButton = new javax.swing.JButton();
+        acceptarButton = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -47,9 +46,9 @@ public class IntroduirCampanya extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nomCampanya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nomCampanyaActionPerformed(evt);
             }
         });
 
@@ -59,14 +58,19 @@ public class IntroduirCampanya extends javax.swing.JFrame {
 
         jLabel3.setText("Nova etapa inicial:");
 
-        Sortir.setText("Sortir");
-        Sortir.addActionListener(new java.awt.event.ActionListener() {
+        sortirButton.setText("Sortir");
+        sortirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SortirActionPerformed(evt);
+                sortirButtonActionPerformed(evt);
             }
         });
 
-        Aceptar.setText("Aceptar");
+        acceptarButton.setText("Aceptar");
+        acceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,10 +83,10 @@ public class IntroduirCampanya extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(192, Short.MAX_VALUE)
-                            .addComponent(Aceptar)
+                            .addContainerGap(201, Short.MAX_VALUE)
+                            .addComponent(acceptarButton)
                             .addGap(42, 42, 42)
-                            .addComponent(Sortir))
+                            .addComponent(sortirButton))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(20, 20, 20)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,8 +94,8 @@ public class IntroduirCampanya extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)))))
+                                .addComponent(nomCampanya)
+                                .addComponent(nomEtapaInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -101,30 +105,39 @@ public class IntroduirCampanya extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomCampanya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomEtapaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Sortir)
-                    .addComponent(Aceptar))
+                    .addComponent(sortirButton)
+                    .addComponent(acceptarButton))
                 .addGap(16, 16, 16))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void nomCampanyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomCampanyaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_nomCampanyaActionPerformed
 
-    private void SortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SortirActionPerformed
+    private void sortirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortirButtonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_SortirActionPerformed
+    }//GEN-LAST:event_sortirButtonActionPerformed
+
+    private void acceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptarButtonActionPerformed
+        if (nomCampanya.getText().length()>0 && nomEtapaInicial.getText().length()>0) {
+            finCamp.setNomCampanya(nomCampanya.getText());
+            finCamp.setNomInicial(nomEtapaInicial.getText());
+            boolean resposta = finCamp.afegir();
+            if (resposta) this.setVisible(false);
+        }
+    }//GEN-LAST:event_acceptarButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -161,14 +174,14 @@ public class IntroduirCampanya extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Aceptar;
-    private javax.swing.JButton Sortir;
+    private javax.swing.JButton acceptarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField nomCampanya;
+    private javax.swing.JTextField nomEtapaInicial;
+    private javax.swing.JButton sortirButton;
     // End of variables declaration//GEN-END:variables
 }

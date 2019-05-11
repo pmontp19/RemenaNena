@@ -3,21 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package remena_nena.domini;
+package remena_nena.Domini;
 
 /**
  *
  * @author victo
  */
-public class Condicio {
+public class Enregistrament {
     private String id;
     private int clics;
-    private int clics_necessaris;
     
-    public Condicio(String idCondicio, int nombreClics){
-        id = idCondicio;
+    public Enregistrament(){
+        id = java.util.UUID.randomUUID().toString();
         clics = 0;
-        clics_necessaris = nombreClics;
     }
     
 }

@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package remena_nena.pantalles;
-import remena_nena.interficies.*;
-import remena_nena.domini.*;
+import remena_nena.Interficie.FinestraInicial;
 
 /**
  *

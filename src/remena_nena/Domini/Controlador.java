@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package remena_nena.domini;
+package remena_nena.Domini;
 import java.util.ArrayList;
 import remena_nena.Dades;
 
@@ -56,7 +56,7 @@ public class Controlador {
         return memes;
     }
      
-     //finds
+     // finds
     public Meme getMeme(String idMeme){
         boolean trobat = false;
         int i = 0;
@@ -69,4 +69,35 @@ public class Controlador {
         if(!trobat) m = null;
         return m;
     }
+    
+    public Campanya getCampanya(String idCampanya) {
+        boolean trobat = false;
+        Campanya c = null;
+        for (int i = 0; i < campanyes.size() && !trobat; i++ ) {
+            c = campanyes.get(i);
+            if (c.getnom().equals(idCampanya)) {
+                trobat = true;
+            }
+        }
+        if (!trobat) {
+            c = null;
+        }
+        return c;
+    }
+    
+    // comprovacions
+    
+    public boolean comprovaCampanya(String nom) {
+        Campanya c = getCampanya(nom);
+        boolean trobat;
+        if (c != null) {
+            trobat = true;
+        } else {
+            trobat = false;
+        }
+        return trobat;
+    }
+
+    
+
 }

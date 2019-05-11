@@ -5,9 +5,9 @@
  */
 package remena_nena;
 import java.util.ArrayList;
-import remena_nena.domini.Campanya;
-import remena_nena.domini.Etapa;
-import remena_nena.domini.Meme;
+import remena_nena.Domini.Campanya;
+import remena_nena.Domini.Etapa;
+import remena_nena.Domini.Meme;
 
 /**
  *

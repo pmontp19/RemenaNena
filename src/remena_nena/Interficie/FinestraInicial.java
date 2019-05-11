@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package remena_nena.interficies;
+package remena_nena.Interficie;
+import remena_nena.Domini.Campanya;
+import remena_nena.Domini.Controlador;
+import remena_nena.Domini.Meme;
 import java.util.ArrayList;
-import remena_nena.domini.*;
 
 /**
  *
