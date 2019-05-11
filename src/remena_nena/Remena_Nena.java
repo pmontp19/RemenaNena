@@ -20,8 +20,8 @@ public class Remena_Nena {
     public static void main(String[] args) {
         // TODO code application logic here
         Dades info_inicial = new Dades();
-        Controlador K = new Controlador(info_inicial);
-        FinestraInicial pantallaInicial = new FinestraInicial(K);
+        Controlador k = new Controlador(info_inicial);
+        FinestraInicial pantallaInicial = new FinestraInicial(k);
         Inicial primera_pantalla = new Inicial(pantallaInicial);
         primera_pantalla.setVisible(true);
     }

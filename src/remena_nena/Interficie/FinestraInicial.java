@@ -19,7 +19,7 @@ public class FinestraInicial {
     Controlador k;
     
     public FinestraInicial(Controlador k){
-        k = k;
+        this.k = k;
         c = k.getCampanyes();
         m = k.getMemes();
     }
