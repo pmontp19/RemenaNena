@@ -25,6 +25,7 @@ public class Campanya {
         iniciades = new ArrayList<Etapa>();
         inicial = new Etapa(nomEtapa);
         forma.add(inicial);
+        etapa_activa = null;
     }
    public Etapa obteEtapa(){
        return etapa_activa;

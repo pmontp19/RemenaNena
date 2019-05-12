@@ -7,6 +7,7 @@ package remena_nena.pantalles;
 import remena_nena.Interficie.FinestraCampanya;
 import remena_nena.Domini.*;
 import remena_nena.Interficie.FinestraInicial;
+import java.util.ArrayList;
 
 /**
  *
@@ -212,10 +213,9 @@ public class IntroduirCampanya extends javax.swing.JFrame {
 
     private void acceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptarButtonActionPerformed
         if (nomCampanya.getText().length()>0 && nomEtapaInicial.getText().length()>0) {
-          //  finCamp.setNomCampanya(nomCampanya.getText());
-           // finCamp.setNomInicial(nomEtapaInicial.getText());
             Controlador K = finCamp.returnK();
             K.novaInicial(nomCampanya.getText(),nomEtapaInicial.getText() );
+            K.indicarMemes(finCamp.getEmesos(), nomEtapaInicial.getText());
             boolean resposta = finCamp.afegir();
             if (resposta) {
                 this.setVisible(false);
@@ -239,12 +239,14 @@ public class IntroduirCampanya extends javax.swing.JFrame {
             public String getElementAt(int i) {
                 return memes[i];
             }
+            
         });
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
-        finCamp.removeMeme(memesList.getSelectedValue());
+        //finCamp.removeMeme(memesList.getSelectedValue());
+        finCamp.removeMeme(memesAdded.getSelectedValue());
         memesAdded.setModel(new javax.swing.AbstractListModel<String>() {
             String[] memes = finCamp.getEmesos();
             @Override

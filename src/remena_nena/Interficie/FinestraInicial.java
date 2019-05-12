@@ -34,9 +34,6 @@ public class FinestraInicial {
         return camp;
     }
     
-    public void introdueixCampanya(Campanya s){
-        c.add(s);
-    }
     
     public String[] getMemes(){
         String[] me = new String[m.size()];

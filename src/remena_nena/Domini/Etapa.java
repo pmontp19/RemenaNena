@@ -32,5 +32,4 @@ public class Etapa {
     public String getEtapa(){
         return nom;
     }
-    
 }
