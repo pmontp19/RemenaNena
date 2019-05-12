@@ -33,6 +33,25 @@ public class Controlador {
          c_activa.etapaActiva(nomInicial);
          finalitzat = false;
      }
+     
+     public void iniciAccio(String nomCampanya, String nomEtapa) {
+         c_activa = getCampanya(nomCampanya);
+         c_activa.iniciAccio(nomEtapa, c_activa);
+     }
+     
+     public void crearSeq() {
+         c_activa.crearSeq();
+     }
+     
+     public void encadenarSequencia(String idCampanya,  String idEtapaDesti) {
+         Etapa eDesti = c_activa.getEtapa(idEtapaDesti);
+         c_activa.encadenarSequencia(eDesti);
+     }
+     
+     public void fiSequencia() {
+         c_activa.fiSequencia();
+     }
+     
      public void indicarMeme(String idMeme){
          Meme m = getMeme(idMeme);
          if( m != null){
@@ -42,7 +61,7 @@ public class Controlador {
          }
      }
      public void fiCampanya(){
-         if(finalitzat = true){
+         if (finalitzat = true){
              c_activa.fiEtapa();
              c_activa = null;
         }

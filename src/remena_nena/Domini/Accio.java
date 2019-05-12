@@ -10,11 +10,20 @@ import java.util.ArrayList;
  * @author victo
  */
 public class Accio {
-    private String id;
+    private static int comptador = 0;
+    private int id;
     private boolean utilitzat;
     private ArrayList<Condicio> compleix;
     
-    public Accio(String idAccio){
+    // constructor per defecte
+    public Accio() {
+        id = comptador++;
+        utilitzat = false;
+        compleix = new ArrayList<>();
+    }
+    
+    // constructor amb parametre
+    public Accio(int idAccio){
         id = idAccio;
         utilitzat = false;
         compleix = new ArrayList<Condicio>();
