@@ -40,7 +40,10 @@ public class FinestraCampanya {
    
    public void setNomInicial(String n) {
        nomEtapa = n;
-   }
+   }   
+   public Controlador returnK() {
+       return K;
+   }  
    
     public String[] getMemes(){
         String[] m = new String[memes.size()];

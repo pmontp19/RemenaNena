@@ -41,6 +41,15 @@ public class Controlador {
              finalitzat = true;
          }
      }
+     
+    public void indicarMemes(String idMeme){
+         Meme m = getMeme(idMeme);
+         if( m != null){
+             Etapa e = c_activa.obteEtapa();
+             e.inserirMeme(m);
+             finalitzat = true;
+         }
+     }
      public void fiCampanya(){
          if(finalitzat = true){
              c_activa.fiEtapa();

@@ -5,6 +5,8 @@
  */
 package remena_nena.pantalles;
 import remena_nena.Interficie.FinestraCampanya;
+import remena_nena.Domini.*;
+import remena_nena.Interficie.FinestraInicial;
 
 /**
  *
@@ -210,10 +212,17 @@ public class IntroduirCampanya extends javax.swing.JFrame {
 
     private void acceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptarButtonActionPerformed
         if (nomCampanya.getText().length()>0 && nomEtapaInicial.getText().length()>0) {
-            finCamp.setNomCampanya(nomCampanya.getText());
-            finCamp.setNomInicial(nomEtapaInicial.getText());
+          //  finCamp.setNomCampanya(nomCampanya.getText());
+           // finCamp.setNomInicial(nomEtapaInicial.getText());
+            Controlador K = finCamp.returnK();
+            K.novaInicial(nomCampanya.getText(),nomEtapaInicial.getText() );
             boolean resposta = finCamp.afegir();
-            if (resposta) this.setVisible(false);
+            if (resposta) {
+                this.setVisible(false);
+                FinestraInicial p = new FinestraInicial(K);
+                Inicial p2 = new Inicial(p);
+                p2.setVisible(true);
+            }
         }
     }//GEN-LAST:event_acceptarButtonActionPerformed
 

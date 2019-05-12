@@ -37,6 +37,8 @@ public class Inicial extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -168,6 +170,7 @@ public class Inicial extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         IntroduirCampanya c_nova = new IntroduirCampanya(inicial.obtenirCampanyes());
+        this.setVisible(false);
         c_nova.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
