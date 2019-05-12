@@ -33,6 +33,8 @@ public class FinestraInicial {
         }
         return camp;
     }
+    
+    
     public String[] getMemes(){
         String[] me = new String[m.size()];
         int i = 0;

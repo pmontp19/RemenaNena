@@ -5,6 +5,9 @@
  */
 package remena_nena.pantalles;
 import remena_nena.Interficie.FinestraCampanya;
+import remena_nena.Domini.*;
+import remena_nena.Interficie.FinestraInicial;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -209,11 +212,25 @@ public class IntroduirCampanya extends javax.swing.JFrame {
     }//GEN-LAST:event_sortirButtonActionPerformed
 
     private void acceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptarButtonActionPerformed
-        if (nomCampanya.getText().length()>0 && nomEtapaInicial.getText().length()>0) {
-            finCamp.setNomCampanya(nomCampanya.getText());
-            finCamp.setNomInicial(nomEtapaInicial.getText());
-            boolean resposta = finCamp.afegir();
-            if (resposta) this.setVisible(false);
+        if (nomCampanya.getText().length()>0 && nomEtapaInicial.getText().length()>0 && finCamp.getEmesos().length > 0) {
+            Controlador K = finCamp.returnK();
+            if(K.getCampanya(nomCampanya.getText()) == null){
+                K.novaInicial(nomCampanya.getText(),nomEtapaInicial.getText() );
+                K.indicarMemes(finCamp.getEmesos(), nomEtapaInicial.getText());
+                boolean resposta = finCamp.afegir();
+                if (resposta) {
+                    this.setVisible(false);
+                    FinestraInicial p = new FinestraInicial(K);
+                    Inicial p2 = new Inicial(p);
+                    p2.setVisible(true);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "No es pot repetir el mateix nom de Campanya","ERROR", JOptionPane.ERROR_MESSAGE);
+                
+            }
+
+
         }
     }//GEN-LAST:event_acceptarButtonActionPerformed
 
@@ -230,12 +247,14 @@ public class IntroduirCampanya extends javax.swing.JFrame {
             public String getElementAt(int i) {
                 return memes[i];
             }
+            
         });
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
-        finCamp.removeMeme(memesList.getSelectedValue());
+        //finCamp.removeMeme(memesList.getSelectedValue());
+        finCamp.removeMeme(memesAdded.getSelectedValue());
         memesAdded.setModel(new javax.swing.AbstractListModel<String>() {
             String[] memes = finCamp.getEmesos();
             @Override
