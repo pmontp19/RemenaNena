@@ -72,6 +72,8 @@ public class FinestraCampanya {
            for (int i = 0; i < emes.size(); i++) {
                K.indicarMeme(emes.get(i).getId());
            }
+           // aixo va aqui? finalitza K si es bona
+           K.fiCampanya();
        }
        return bona;
    }
