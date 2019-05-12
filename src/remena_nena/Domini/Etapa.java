@@ -16,7 +16,7 @@ public class Etapa {
     private ArrayList<Meme> emès;
     private ArrayList<Meme> actiu;
     private ArrayList<Accio> lligam;
-    private Sequencia sActiva;
+    private Sequencia seqActiva;
     
     public Etapa(String nomEtapa){
         nom = nomEtapa;
@@ -37,19 +37,20 @@ public class Etapa {
     public void crearSeq() {
         Sequencia s = new Sequencia();
         lligam.add(s);
-        sActiva = s;
-    }
-    
-    public void activarSequencia(String idSeq) {
-        
+        seqActiva = s;
     }
     
     public void encadenarSequencia(Etapa eDesti) {
-        sActiva.encadenarSequencia(eDesti);
+        seqActiva.encadenarSequencia(eDesti);
+    }
+    
+    public void encadenarFinalitzador() {
+        Finalitzador f = new Finalitzador();
+        lligam.add(f);
     }
     
     public void fiSequencia() {
-        sActiva = null;
+        seqActiva = null;
     }
     
     public void encadenarDisparador(Campanya c) {

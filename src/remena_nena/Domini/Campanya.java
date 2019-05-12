@@ -53,6 +53,10 @@ public class Campanya {
        etapaActiva(nomEtapa);
    }
    
+   public void fiAccio() {
+       etapa_activa = null;
+   }
+   
    public void crearSeq() {
        etapa_activa.crearSeq();
    }
@@ -67,6 +71,10 @@ public class Campanya {
 
    public void encadenarDisparador(Campanya c) {
        etapa_activa.encadenarDisparador(c);
+   }
+   
+   public void encadenarDisparador() {
+       etapa_activa.encadenarFinalitzador();
    }
    
    // finds
