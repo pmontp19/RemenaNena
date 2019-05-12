@@ -24,7 +24,7 @@ public class Etapa {
         clics = 0;
         emès = new ArrayList<Meme>();
         actiu = new ArrayList<Meme>();
-        lligam = new ArrayList<Accio>();
+        lligam = new ArrayList<>();
     }
     
     public void inserirMeme(Meme m){
@@ -50,6 +50,11 @@ public class Etapa {
     
     public void fiSequencia() {
         sActiva = null;
+    }
+    
+    public void encadenarDisparador(Campanya c) {
+        Disparador d = new Disparador(c);
+        lligam.add(d);
     }
     
 }

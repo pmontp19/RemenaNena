@@ -52,6 +52,11 @@ public class Controlador {
          c_activa.fiSequencia();
      }
      
+     public void encadenarDisparador(String idCampanya) {
+         Campanya c = getCampanya(idCampanya);
+         c_activa.encadenarDisparador(c);
+     }
+     
      public void indicarMeme(String idMeme){
          Meme m = getMeme(idMeme);
          if( m != null){

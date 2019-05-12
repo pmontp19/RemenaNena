@@ -26,7 +26,7 @@ public class Accio {
     public Accio(int idAccio){
         id = idAccio;
         utilitzat = false;
-        compleix = new ArrayList<Condicio>();
+        compleix = new ArrayList<>();
     }
     
 }

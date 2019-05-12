@@ -64,6 +64,10 @@ public class Campanya {
    public void fiSequencia() {
        etapa_activa.fiSequencia();
    }
+
+   public void encadenarDisparador(Campanya c) {
+       etapa_activa.encadenarDisparador(c);
+   }
    
    // finds
    
