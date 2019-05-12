@@ -37,7 +37,7 @@ public class FinestraInicial {
         String[] me = new String[m.size()];
         int i = 0;
         while(i<m.size()){
-            me[i] = (m.get(i)).getMeme();
+            me[i] = (m.get(i)).getId();
             i++;
         }
         return me;

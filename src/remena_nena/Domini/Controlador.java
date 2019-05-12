@@ -63,7 +63,7 @@ public class Controlador {
         Meme m = null;
         while(i < memes.size() && !trobat){
             m = memes.get(i);
-            if(m.getMeme().equals(idMeme)) trobat = true;
+            if(m.getId().equals(idMeme)) trobat = true;
             i++;
         }
         if(!trobat) m = null;

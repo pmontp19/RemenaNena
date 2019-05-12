@@ -46,7 +46,7 @@ public class FinestraCampanya {
         String[] m = new String[memes.size()];
         int i = 0;
         while(i < memes.size()){
-            m[i] = (memes.get(i)).getMeme();
+            m[i] = (memes.get(i)).getId();
             i++;
         }
         return m;
@@ -56,7 +56,7 @@ public class FinestraCampanya {
         String[] m = new String[emes.size()];
         int i = 0;
         while(i < emes.size()){
-            m[i] = (emes.get(i)).getMeme();
+            m[i] = (emes.get(i)).getId();
             i++;
         }
         return m;
@@ -69,6 +69,9 @@ public class FinestraCampanya {
        if (!K.comprovaCampanya(nomCampanya)) {
            bona = true;
            K.novaInicial(nomCampanya, nomEtapa);
+           for (int i = 0; i < emes.size(); i++) {
+               K.indicarMeme(emes.get(i).getId());
+           }
        }
        return bona;
    }
@@ -78,7 +81,7 @@ public class FinestraCampanya {
         boolean trobat = false;
         while( i < memes.size() && trobat == false ){
             Meme meme = memes.get(i);
-            if(meme.getMeme().equals(m) && !emes.contains(meme)){
+            if(meme.getId().equals(m) && !emes.contains(meme)){
                 trobat = true;
                 emes.add(meme);
             }
@@ -91,7 +94,7 @@ public class FinestraCampanya {
         boolean trobat = false;
         while( i < memes.size() && trobat == false ){
             Meme meme = memes.get(i);
-            if(meme.getMeme().equals(m)){
+            if(meme.getId().equals(m)){
                 trobat = true;
                 emes.remove(meme);
             }
