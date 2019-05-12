@@ -7,7 +7,7 @@ package remena_nena.pantalles;
 import remena_nena.Interficie.FinestraCampanya;
 import remena_nena.Domini.*;
 import remena_nena.Interficie.FinestraInicial;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -212,17 +212,25 @@ public class IntroduirCampanya extends javax.swing.JFrame {
     }//GEN-LAST:event_sortirButtonActionPerformed
 
     private void acceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptarButtonActionPerformed
-        if (nomCampanya.getText().length()>0 && nomEtapaInicial.getText().length()>0) {
+        if (nomCampanya.getText().length()>0 && nomEtapaInicial.getText().length()>0 && finCamp.getEmesos().length > 0) {
             Controlador K = finCamp.returnK();
-            K.novaInicial(nomCampanya.getText(),nomEtapaInicial.getText() );
-            K.indicarMemes(finCamp.getEmesos(), nomEtapaInicial.getText());
-            boolean resposta = finCamp.afegir();
-            if (resposta) {
-                this.setVisible(false);
-                FinestraInicial p = new FinestraInicial(K);
-                Inicial p2 = new Inicial(p);
-                p2.setVisible(true);
+            if(K.getCampanya(nomCampanya.getText()) == null){
+                K.novaInicial(nomCampanya.getText(),nomEtapaInicial.getText() );
+                K.indicarMemes(finCamp.getEmesos(), nomEtapaInicial.getText());
+                boolean resposta = finCamp.afegir();
+                if (resposta) {
+                    this.setVisible(false);
+                    FinestraInicial p = new FinestraInicial(K);
+                    Inicial p2 = new Inicial(p);
+                    p2.setVisible(true);
+                }
             }
+            else{
+                JOptionPane.showMessageDialog(this, "No es pot repetir el mateix nom de Campanya","ERROR", JOptionPane.ERROR_MESSAGE);
+                
+            }
+
+
         }
     }//GEN-LAST:event_acceptarButtonActionPerformed
 
