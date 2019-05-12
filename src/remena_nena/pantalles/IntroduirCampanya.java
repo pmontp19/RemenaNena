@@ -19,6 +19,18 @@ public class IntroduirCampanya extends javax.swing.JFrame {
     public IntroduirCampanya(FinestraCampanya f) {
         finCamp = f;
         initComponents();
+        // fem override de les funcions getsize i getelement
+        memesList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] memes = f.getMemes();
+            @Override
+            public int getSize() {
+                return memes.length; 
+            }
+            @Override
+            public String getElementAt(int i) {
+                return memes[i];
+            }
+        });
     }
 
     /**
@@ -39,6 +51,13 @@ public class IntroduirCampanya extends javax.swing.JFrame {
         nomEtapaInicial = new javax.swing.JTextField();
         sortirButton = new javax.swing.JButton();
         acceptarButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        memesList = new javax.swing.JList<>();
+        jLabel4 = new javax.swing.JLabel();
+        addButton = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        memesAdded = new javax.swing.JList<>();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -72,50 +91,109 @@ public class IntroduirCampanya extends javax.swing.JFrame {
             }
         });
 
+        memesList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(memesList);
+
+        jLabel4.setText("Memes:");
+
+        addButton.setText("Afegir >");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+
+        removeButton.setText("< Treure");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
+            }
+        });
+
+        jScrollPane3.setViewportView(memesAdded);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(jLabel2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(201, Short.MAX_VALUE)
-                            .addComponent(acceptarButton)
-                            .addGap(42, 42, 42)
-                            .addComponent(sortirButton))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(260, Short.MAX_VALUE)
+                        .addComponent(acceptarButton)
+                        .addGap(37, 37, 37)
+                        .addComponent(sortirButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3)
-                                .addComponent(jLabel1))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(nomCampanya)
-                                .addComponent(nomEtapaInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                                .addComponent(nomCampanya, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                                .addComponent(nomEtapaInicial))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(addButton)
+                                    .addComponent(removeButton))
+                                .addGap(45, 45, 45)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addButton, removeButton});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane2, jScrollPane3});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomCampanya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(nomEtapaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sortirButton)
-                    .addComponent(acceptarButton))
-                .addGap(16, 16, 16))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomCampanya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(nomEtapaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(181, 181, 181)
+                                .addComponent(addButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(removeButton)
+                                .addGap(56, 56, 56))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sortirButton)
+                            .addComponent(acceptarButton))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,6 +216,39 @@ public class IntroduirCampanya extends javax.swing.JFrame {
             if (resposta) this.setVisible(false);
         }
     }//GEN-LAST:event_acceptarButtonActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        // TODO add your handling code here:
+        finCamp.addMeme(memesList.getSelectedValue());
+        memesAdded.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] memes = finCamp.getEmesos();
+            @Override
+            public int getSize() {
+                return memes.length; 
+            }
+            @Override
+            public String getElementAt(int i) {
+                return memes[i];
+            }
+        });
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        // TODO add your handling code here:
+        finCamp.removeMeme(memesList.getSelectedValue());
+        memesAdded.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] memes = finCamp.getEmesos();
+            @Override
+            public int getSize() {
+                return memes.length; 
+            }
+            @Override
+            public String getElementAt(int i) {
+                return memes[i];
+            }
+        });
+
+    }//GEN-LAST:event_removeButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -175,13 +286,20 @@ public class IntroduirCampanya extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptarButton;
+    private javax.swing.JButton addButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JList<String> memesAdded;
+    private javax.swing.JList<String> memesList;
     private javax.swing.JTextField nomCampanya;
     private javax.swing.JTextField nomEtapaInicial;
+    private javax.swing.JButton removeButton;
     private javax.swing.JButton sortirButton;
     // End of variables declaration//GEN-END:variables
 }

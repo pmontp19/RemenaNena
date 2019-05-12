@@ -20,13 +20,21 @@ public class Inicial extends javax.swing.JFrame {
         initComponents();
         llistaCampanyes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = a.getCampanyes();
+            @Override
             public int getSize() { return strings.length; }
+            @Override
             public String getElementAt(int i) { return strings[i]; }
         });
         llistaMemes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = a.getMemes();
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            @Override
+            public int getSize() { 
+                return strings.length; 
+            }
+            @Override
+            public String getElementAt(int i) { 
+                return strings[i]; 
+            }
         });
     }
 
