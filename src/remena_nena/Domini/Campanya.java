@@ -49,6 +49,9 @@ public class Campanya {
    public String getnom(){
        return nom;
    }
+   public boolean getIniciada(){
+       return iniciada;
+   }
    
    public void iniciAccio(String nomEtapa, Campanya c) {
        etapaActiva(nomEtapa);
@@ -87,6 +90,9 @@ public class Campanya {
            }
        }
        return null;
+   }
+   public ArrayList<Etapa> getEtapasForma() {
+       return forma;
    }
       
 }

@@ -209,7 +209,8 @@ public class Inicial extends javax.swing.JFrame {
 
     private void llistaCampanyesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_llistaCampanyesMouseClicked
         String s= llistaCampanyes.getSelectedValue();
-
+        SeleccionarCampanya SC = new SeleccionarCampanya(inicial.controladorSel(s),s);
+        SC.setVisible(true);
     }//GEN-LAST:event_llistaCampanyesMouseClicked
 
     private void llistaMemesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_llistaMemesMouseClicked

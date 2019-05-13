@@ -48,5 +48,8 @@ public class FinestraInicial {
     public FinestraCampanya obtenirCampanyes(){
         return new FinestraCampanya(k);
     }
+    public FinestraSeleccionarCampanya controladorSel(String s){
+        return new FinestraSeleccionarCampanya(k,s);
+    }
     
 }

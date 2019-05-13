@@ -57,4 +57,7 @@ public class Etapa {
         Disparador d = new Disparador(c);
         lligam.add(d);
     }
+    public ArrayList<Meme> getEmesos(){
+        return emès;
+    }
 }
