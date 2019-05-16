@@ -10,10 +10,11 @@ import java.util.ArrayList;
  * @author victo
  */
 public class Accio {
-    private static int comptador = 0;
-    private int id;
-    private boolean utilitzat;
-    private ArrayList<Condicio> compleix;
+    protected static int comptador = 0;
+    protected int id;
+    protected boolean utilitzat;
+    protected  ArrayList<Condicio> compleix;
+    protected Etapa e;
     
     // constructor per defecte
     public Accio() {
@@ -43,5 +44,11 @@ public class Accio {
     public int getId() {
         return id;
     }
+
+    public void accioExecutada() {
+        
+    }
+    
+    
     
 }

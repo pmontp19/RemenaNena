@@ -123,4 +123,13 @@ public class Etapa {
             m.FinalitzarEtapa(this);
         }
     }
+    public void activarMeme(Etapa e){
+        iniciada = true;
+        for(int i = 0; i<emes.size();i++){
+            Meme m = emes.get(i);
+            m.activarMemes(e);
+            forma.activarEtapa(this);
+        }
+        
+    }
 }

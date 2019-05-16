@@ -66,4 +66,9 @@ public class FinestraInicial {
         return k;
     }
     
+    public FinestraClic controladorClics(String s){
+        k.memeActiu(s);
+        return new FinestraClic(k);
+    }
+    
 }

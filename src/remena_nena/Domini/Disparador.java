@@ -17,5 +17,8 @@ public class Disparador extends Accio {
     Disparador(Campanya c) {
         comenca = c;
     }
+    public void accioExecutada(){
+        comenca.iniciarCampanya();
+    }
     
 }

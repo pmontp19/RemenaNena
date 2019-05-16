@@ -247,7 +247,11 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_llistaCampanyesMouseClicked
 
     private void llistaMemesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_llistaMemesMouseClicked
-        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            String s = llistaMemes.getSelectedValue();
+            IntroduirClics SC = new IntroduirClics(inicial.controladorClics(s));
+            SC.setVisible(true);
+        }
     }//GEN-LAST:event_llistaMemesMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

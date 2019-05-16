@@ -5,10 +5,19 @@
  */
 package remena_nena.Domini;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author pere
  */
 public class Finalitzador extends Accio {
+    
+    Finalitzador(){
+        
+    }
+    public void accioExecutada(){
+        
+    }
     
 }

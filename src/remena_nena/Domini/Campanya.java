@@ -45,6 +45,9 @@ public class Campanya {
        }
        if(!trobat) etapa_activa = null;
    }
+   public void activarEtapa(Etapa e){
+       this.iniciades.add(e);
+   }
    
    public String getnom(){
        return nom;
