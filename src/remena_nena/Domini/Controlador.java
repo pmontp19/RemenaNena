@@ -94,6 +94,17 @@ public class Controlador {
             c_activa = null;
         }
     }
+    
+    public void fixarCondicioRelativa(String idCampanya, String idEtapa, int idAccio, String idMeme, int nombreClics) {
+        /* PRE Campanya c existeix */
+        Campanya c = getCampanya(idCampanya);
+        c.fixarCondicioRelativa(idEtapa, idAccio, idMeme, nombreClics);
+    }
+    
+   public void fixarCondicioAbsoluta(String idCampanya, int idAccio, String idEtapa, int nombreClics) {
+       Campanya c = getCampanya(idCampanya);
+       c.fixarCondicioAbsoluta(idAccio, idEtapa, nombreClics);
+   }
 
     public ArrayList<Campanya> getCampanyes() {
         return campanyes;
