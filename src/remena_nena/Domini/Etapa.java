@@ -16,22 +16,24 @@ public class Etapa {
     private String nom;
     private boolean iniciada;
     private int clics;
-    private ArrayList<Meme> emès;
+    private ArrayList<Meme> emes;
     private ArrayList<Meme> actiu;
     private ArrayList<Accio> lligam;
     private Sequencia seqActiva;
+    private Campanya forma;
 
-    public Etapa(String nomEtapa) {
+    public Etapa(Campanya c, String nomEtapa) {
         nom = nomEtapa;
         iniciada = false;
         clics = 0;
-        emès = new ArrayList<Meme>();
+        emes = new ArrayList<Meme>();
         actiu = new ArrayList<Meme>();
         lligam = new ArrayList<>();
+        forma = c;
     }
 
     public void inserirMeme(Meme m) {
-        emès.add(m);
+        emes.add(m);
     }
 
     public String getId() {
@@ -72,9 +74,13 @@ public class Etapa {
         Accio ac = getAccio(idAccio);
         ac.fixarCondicioAbsoluta(this, nombreClics);
     }
+    
+    public void seleccionarMeme(Meme m) {
+        emes.add(m);
+    }
 
     public ArrayList<Meme> getEmesos() {
-        return emès;
+        return emes;
     }
 
     // finds

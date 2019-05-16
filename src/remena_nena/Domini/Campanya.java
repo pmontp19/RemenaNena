@@ -23,7 +23,7 @@ public class Campanya {
         iniciada = false;
         forma = new ArrayList<Etapa>();
         iniciades = new ArrayList<Etapa>();
-        inicial = new Etapa(nomEtapa);
+        inicial = new Etapa(this, nomEtapa);
         forma.add(inicial);
         etapa_activa = null;
     }
@@ -90,6 +90,20 @@ public class Campanya {
    public void fixarCondicioAbsoluta(int idAccio, String idEtapa, int nombreClics) {
        Etapa e = getEtapa(idEtapa);
        e.fixarCondicioAbsoluta(idAccio, nombreClics);
+   }
+   
+   public void crearEtapa(String nomEtapa) {
+       Etapa e = new Etapa(this, nomEtapa);
+       forma.add(e);
+       etapa_activa = e;
+   }
+   
+   public void seleccionarMeme(Meme m) {
+       etapa_activa.seleccionarMeme(m);
+   }
+   
+   public void fiSeleccionar() {
+       etapa_activa = null;
    }
    
    // finds
