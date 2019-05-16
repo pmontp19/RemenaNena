@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Finalitzador extends Accio {
     
-    Finalitzador(){
-        
+    Finalitzador(Etapa e){
+        super(e);
     }
     public void accioExecutada(){
         e.crearTancat();

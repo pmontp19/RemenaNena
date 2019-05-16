@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Sequencia extends Accio {
     private ArrayList<Etapa> iniciacio;
     
-    Sequencia() {
-        // super();
+    Sequencia(Etapa e) {
+        super(e);
         iniciacio = new ArrayList<>();
     }
     

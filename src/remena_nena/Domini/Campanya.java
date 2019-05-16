@@ -152,6 +152,7 @@ public class Campanya {
            if(et.equals(e)) iniciades.remove(i);
            else i++;           
        }
+       if(iniciades.isEmpty()) iniciada = false;
        
    }
       

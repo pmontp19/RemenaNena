@@ -72,6 +72,10 @@ public class Meme {
             Relativa r = enllaca.get(i);
             r.rebreClic();
         }
+        for(int i = 0; i < actives.size();i++){
+            Etapa e = actives.get(i);
+            e.rebreClic();
+        }
     }
     
     public void fixarCondicioRelativa(Relativa r) {

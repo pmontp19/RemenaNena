@@ -18,7 +18,7 @@ public class Etapa {
     private int clics;
     private ArrayList<Meme> emes;
     private ArrayList<Accio> lligam;
-    private ArrayList<Condicio> vinculada;
+    private ArrayList<Absoluta> vinculada;
     private Sequencia seqActiva;
     private Campanya forma;
 
@@ -28,7 +28,7 @@ public class Etapa {
         clics = 0;
         emes = new ArrayList<Meme>();
         lligam = new ArrayList<Accio>();
-        vinculada = new ArrayList<Condicio>();
+        vinculada = new ArrayList<Absoluta>();
         forma = c;
     }
 
@@ -41,13 +41,13 @@ public class Etapa {
     }
 
     public void crearSeq() {
-        Sequencia s = new Sequencia();
+        Sequencia s = new Sequencia(this);
         lligam.add(s);
         seqActiva = s;
     }
     
-    public void afegeixCondicio(Condicio c){
-        vinculada.add(c);
+    public void afegeixCondicio(Absoluta a){
+        vinculada.add(a);
     }
     
     public void afegeixAccio(Accio a){
@@ -64,7 +64,7 @@ public class Etapa {
     }
 
     public void encadenarFinalitzador() {
-        Finalitzador f = new Finalitzador();
+        Finalitzador f = new Finalitzador(this);
         lligam.add(f);
     }
 
@@ -73,7 +73,7 @@ public class Etapa {
     }
 
     public void encadenarDisparador(Campanya c) {
-        Disparador d = new Disparador(c);
+        Disparador d = new Disparador(c,this);
         lligam.add(d);
     }
 
@@ -161,5 +161,12 @@ public class Etapa {
 
     public void EsborrarEtapaAcabada(){
         forma.borrarEtapa(this);
+    }
+    
+    public void rebreClic(){
+        for(int i = 0; i<vinculada.size(); i++){
+            Absoluta a = vinculada.get(i);
+            a.rebreClic();
+        }
     }
 }

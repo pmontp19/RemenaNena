@@ -16,4 +16,10 @@ public class Absoluta extends Condicio {
         super(nombreClics, idAccio);
         vinculada = e;
     }
+    public void rebreClic(){
+        clics++;
+        if(clics == clics_necessaris){
+            this.accioEcecutada();
+        }
+    }
 }

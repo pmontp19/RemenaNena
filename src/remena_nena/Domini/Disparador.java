@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class Disparador extends Accio {
     private Campanya comenca;
 
-    Disparador(Campanya c) {
+    Disparador(Campanya c, Etapa e) {
+        super(e);
         comenca = c;
     }
     public void accioExecutada(){
