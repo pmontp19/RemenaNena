@@ -76,7 +76,7 @@ public class Inicial extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         ButtonIniciarCamp = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        ButtonFinalitzarCampanya = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -158,7 +158,12 @@ public class Inicial extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Finalitzar Campanya");
+        ButtonFinalitzarCampanya.setText("Finalitzar Campanya");
+        ButtonFinalitzarCampanya.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonFinalitzarCampanyaActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Afegir Etapa");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +183,7 @@ public class Inicial extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ButtonIniciarCamp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonFinalitzarCampanya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +227,7 @@ public class Inicial extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(ButtonIniciarCamp)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton6)
+                        .addComponent(ButtonFinalitzarCampanya)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton7)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -290,6 +295,22 @@ public class Inicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonIniciarCampActionPerformed
 
+    private void ButtonFinalitzarCampanyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFinalitzarCampanyaActionPerformed
+        if (!llistaCampanyes.isSelectionEmpty()){
+            Campanya ca = inicial.getCampanya(llistaCampanyes.getSelectedValue());
+            if(ca.getIniciada()){
+                Controlador k = inicial.getControlador();
+                k.FinalitzarCampanya(llistaCampanyes.getSelectedValue());
+                JOptionPane.showMessageDialog(this, "Campanya finalitzada correctament","ALERTA", JOptionPane.WARNING_MESSAGE);
+            }
+            else JOptionPane.showMessageDialog(this, "No es pot finalitzar una campanya no activa","ALERTA", JOptionPane.WARNING_MESSAGE);
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Selecciona una campanya de la llista per continuar","ALERTA", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_ButtonFinalitzarCampanyaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -326,12 +347,12 @@ public class Inicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonFinalitzarCampanya;
     private javax.swing.JButton ButtonIniciarCamp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

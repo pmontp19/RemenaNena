@@ -126,5 +126,14 @@ public class Campanya {
        iniciades.add(inicial);
        
    }
+   
+   public void FinalitzarCampanya(){
+       iniciada = false;
+       for(int i = 0; i<iniciades.size(); i++){
+           Etapa e = iniciades.get(i);
+           e.FinalitzarCampanya();
+       }
+       iniciades = new ArrayList<Etapa>();
+   }
       
 }

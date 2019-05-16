@@ -102,6 +102,13 @@ public class Controlador {
         }
     }
     
+    public void FinalitzarCampanya(String nomCampanya){
+        Campanya c = getCampanya(nomCampanya);
+        if(c.getIniciada()){
+            c.FinalitzarCampanya();
+        }
+    }
+    
     public void fixarCondicioRelativa(String idCampanya, String idEtapa, int idAccio, String idMeme, int nombreClics) {
         /* PRE Campanya c existeix */
         Campanya c = getCampanya(idCampanya);

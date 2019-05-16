@@ -26,6 +26,7 @@ public class Meme {
         Etapes_actives = 0;
         total = new Enregistrament();
         llibertat = new ArrayList<Enregistrament>();
+        emes = new ArrayList<Etapa>();
     }
     
     public String getId(){
@@ -35,10 +36,28 @@ public class Meme {
     public void activarMemes(Etapa e){
         lliure = false;
         Etapes_actives++;
+        emes.add(e);
         
     }
     public boolean getLlibertad(){
         return lliure;
+    }
+    
+    public void FinalitzarEtapa(Etapa e){
+        Etapes_actives--;
+        boolean trobat = false;
+        int i = 0;
+        while(i<emes.size() && !trobat){
+            Etapa et = emes.get(i);
+            if(et.equals(e)){
+                emes.remove(i);
+                trobat = true;
+            }
+            else i++;
+        }
+        if(Etapes_actives == 0){
+            lliure = true;
+        }
     }
     
 }
