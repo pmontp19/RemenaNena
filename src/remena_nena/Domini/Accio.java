@@ -29,4 +29,19 @@ public class Accio {
         compleix = new ArrayList<>();
     }
     
+    public void fixarCondicioRelativa(String idMeme, int nombreClics) 
+    {
+        Relativa r = new Relativa(idMeme, this, nombreClics);
+        compleix.add(r);
+    }
+    
+    public void fixarCondicioAbsoluta(Etapa e, int nombreClics) {
+        Absoluta a = new Absoluta(e, this, nombreClics);
+        compleix.add(a);
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
 }
