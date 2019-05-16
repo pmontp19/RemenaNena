@@ -28,8 +28,9 @@ public class Meme {
         total = new Enregistrament();
         llibertat = new ArrayList<Enregistrament>();
         actives = new ArrayList<Etapa>();
-        enllaca = new ArrayList<>();
+        enllaca = new ArrayList<Relativa>();
     }
+    
     
     public String getId(){
           return nom;

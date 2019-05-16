@@ -34,6 +34,12 @@ public class Campanya {
        etapa_activa = null;
    }
    
+   public void IndicarMemePerDades(String s, String r){
+       Etapa e = getEtapa(s);
+       Meme m = e.getMeme(r);
+       e.inserirMeme(m);
+   }
+   
    public void etapaActiva(String idEtapa){
        int i = 0;
        boolean trobat = false;
@@ -137,6 +143,16 @@ public class Campanya {
            e.FinalitzarCampanya();
        }
        iniciades = new ArrayList<Etapa>();
+   }
+   public void borrarEtapa(Etapa e){
+       int i = 0;
+       boolean trobat = false;
+       while(i<iniciades.size() && !trobat){
+           Etapa et = iniciades.get(i);
+           if(et.equals(e)) iniciades.remove(i);
+           else i++;           
+       }
+       
    }
       
 }

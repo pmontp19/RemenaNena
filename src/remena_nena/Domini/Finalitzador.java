@@ -17,7 +17,7 @@ public class Finalitzador extends Accio {
         
     }
     public void accioExecutada(){
-        
+        e.crearTancat();
     }
     
 }
