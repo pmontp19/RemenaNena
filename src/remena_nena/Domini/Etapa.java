@@ -14,17 +14,17 @@ public class Etapa {
     private boolean iniciada;
     private int clics;
     private ArrayList<Meme> emès;
-    private ArrayList<Meme> actiu;
     private ArrayList<Accio> lligam;
+    private String forma;
     private Sequencia seqActiva;
     
-    public Etapa(String nomEtapa){
+    public Etapa(String nomEtapa, String nomCampanya){
         nom = nomEtapa;
         iniciada = false;
         clics = 0;
         emès = new ArrayList<Meme>();
-        actiu = new ArrayList<Meme>();
         lligam = new ArrayList<>();
+        forma = nomCampanya;
     }
     
     public void inserirMeme(Meme m){

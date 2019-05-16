@@ -16,6 +16,7 @@ public class Meme {
     private int clics;
     private Enregistrament total;
     private ArrayList<Enregistrament> llibertat;
+    private ArrayList<Etapa> emes;
     
     public Meme(String idmeme){
         nom = idmeme;

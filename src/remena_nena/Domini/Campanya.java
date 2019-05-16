@@ -23,7 +23,7 @@ public class Campanya {
         iniciada = false;
         forma = new ArrayList<Etapa>();
         iniciades = new ArrayList<Etapa>();
-        inicial = new Etapa(nomEtapa);
+        inicial = new Etapa(nomCampanya,nomEtapa);
         forma.add(inicial);
         etapa_activa = null;
     }
