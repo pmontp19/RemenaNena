@@ -117,7 +117,7 @@ public class Controlador {
    public void seleccionarCampanya(String idCampanya) {
        /**
         * existeix campanya
-        * ass. inicial<campanya,etapa>
+        * ass. inicial(campanya,etapa)
         * no c_activa
         */
 
@@ -165,6 +165,10 @@ public class Controlador {
             m = null;
         }
         return m;
+    }
+    
+    public Campanya getCampanya() {
+        return c_activa;
     }
 
     public Campanya getCampanya(String idCampanya) {

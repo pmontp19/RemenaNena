@@ -62,6 +62,10 @@ public class FinestraInicial {
         return new FinestraAfegirEtapa(k);
     }
     
+    public FinestraSelecEncadenament afegirEncadenament(String idCampanya) {
+        return new FinestraSelecEncadenament(k, idCampanya);
+    }
+    
     public Controlador getControlador(){
         return k;
     }

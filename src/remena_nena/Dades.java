@@ -26,6 +26,8 @@ public class Dades {
         Campanya nova = new Campanya("Eleccions municipals","Pre eleccions");
         c.add(nova);
         nova = new Campanya("Eleccions Europees","Primer debat");
+        nova.crearEtapa("Segon debat");
+        nova.crearEtapa("Tercer debat");
         c.add(nova);
         nova = new Campanya("Eleccions Generals","Ineficiencia del actual Gobern");
         c.add(nova);
