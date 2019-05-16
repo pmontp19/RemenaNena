@@ -75,4 +75,8 @@ public class FinestraInicial {
         return new FinestraClic(k);
     }
     
+    public FinestraCondicio afegirCondicio(String idCampanya) {
+        return new FinestraCondicio(k, idCampanya);
+    }
+    
 }

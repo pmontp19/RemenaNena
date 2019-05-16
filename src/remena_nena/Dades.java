@@ -5,9 +5,7 @@
  */
 package remena_nena;
 import java.util.ArrayList;
-import remena_nena.Domini.Campanya;
-import remena_nena.Domini.Etapa;
-import remena_nena.Domini.Meme;
+import remena_nena.Domini.*;
 
 /**
  *
@@ -17,24 +15,29 @@ public class Dades {
     ArrayList<Campanya> c;
     ArrayList<Etapa> e;
     ArrayList<Meme> m;
+    
     public Dades(){
-        iniciarCampanya();
-        iniciarMemes();
+        //c = new ArrayList<>();
+        //iniciarMemes();
+        //iniciarCampanya();
     }
-    private void iniciarCampanya(){
-        c = new ArrayList<Campanya>();
-        Campanya nova = new Campanya("Eleccions municipals","Pre eleccions");
-        nova.IndicarMemePerDades("Pre eleccions","Corrupcio");
-        nova.crearEtapa("Meeting a l'ajuntament");
-        c.add(nova);
-        nova = new Campanya("Eleccions Europees","Primer debat");
-        nova.crearEtapa("Segon debat");
-        nova.crearEtapa("Tercer debat");
-        c.add(nova);
-        nova = new Campanya("Eleccions Generals","Ineficiencia del actual Gobern");
-        nova.crearEtapa("Nosaltres ho farem millor");
-        nova.crearEtapa("Voteume");
-        c.add(nova);
+    public void iniciarCampanya(Controlador k){
+        String idCampanya = "Destruir oponents";
+        String idEtapa = "fase 2";
+        k.novaInicial(idCampanya, "fase 1");
+        k.indicarMeme("Corrupcio");
+        k.indicarMeme("Judicis");
+        k.fiCampanya();
+        k.seleccionarCampanya(idCampanya);
+        k.crearEtapa("fase 2");
+        k.crearEtapa("fase 3");
+        k.fiSeleccionar();
+        k.fiAfegir();
+        k.iniciAccio(idCampanya, idEtapa);
+        k.encadenarFinalitzador();
+        k.fiAccio();
+        k.fixarCondicioAbsoluta(idCampanya, 0, idEtapa, 100);
+
     }
     private void iniciarMemes(){
         m = new ArrayList<Meme>();
@@ -55,6 +58,7 @@ public class Dades {
             return c;
     }
     public ArrayList<Meme> obtenirMemes(){
+        iniciarMemes();
         return m;
     }
 }

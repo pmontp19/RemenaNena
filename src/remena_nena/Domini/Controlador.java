@@ -62,6 +62,10 @@ public class Controlador {
         Meme m = new Meme(s);
         memes.add(m);
     }
+    
+    public void setMemesIni(ArrayList<Meme> memes) {
+        this.memes = memes;
+    }
 
     public void novaInicial(String nomCampanya, String nomInicial) {
         c_activa = new Campanya(nomCampanya, nomInicial);
