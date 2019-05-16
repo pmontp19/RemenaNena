@@ -13,7 +13,7 @@ public class Accio {
     protected static int comptador = 0;
     protected int id;
     protected boolean utilitzat;
-    protected  ArrayList<Condicio> compleix;
+    protected ArrayList<Condicio> compleix;
     protected Etapa e;
 
     
@@ -31,10 +31,12 @@ public class Accio {
         compleix = new ArrayList<>();
     }
     
-    public void fixarCondicioRelativa(Meme m, int nombreClics) 
+    public void fixarCondicioRelativa(Meme m, int nombreClics, Etapa e) 
     {
         Relativa r = new Relativa(m, this, nombreClics);
         compleix.add(r);
+        e.fixarCondicioRelativa(r,m);
+        
     }
     
     public void fixarCondicioAbsoluta(Etapa e, int nombreClics) {

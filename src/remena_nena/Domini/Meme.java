@@ -17,7 +17,7 @@ public class Meme {
     private Enregistrament total;
     private ArrayList<Enregistrament> llibertat;
     private ArrayList<Etapa> actives;
-    private ArrayList<Relativa> enllaça;
+    private ArrayList<Relativa> enllaca;
     private int Etapes_actives;
     
     public Meme(String idmeme){
@@ -28,7 +28,7 @@ public class Meme {
         total = new Enregistrament();
         llibertat = new ArrayList<Enregistrament>();
         actives = new ArrayList<Etapa>();
-        enllaça = new ArrayList<Relativa>();
+        enllaca = new ArrayList<>();
     }
     
     public String getId(){
@@ -67,11 +67,14 @@ public class Meme {
         if(lliure){
             total.rebreClic();
         }
-        for(int i = 0; i<enllaça.size(); i++){
-            Relativa r = enllaça.get(i);
+        for(int i = 0; i<enllaca.size(); i++){
+            Relativa r = enllaca.get(i);
             r.rebreClic();
         }
-        
+    }
+    
+    public void fixarCondicioRelativa(Relativa r) {
+        enllaca.add(r);
     }
     
 }

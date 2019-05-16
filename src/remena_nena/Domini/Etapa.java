@@ -65,7 +65,11 @@ public class Etapa {
     public void fixarCondicioRelativa(int idAccio, Meme m, int nombreClics) {
         /* PRE Accio existeix */
         Accio a = getAccio(idAccio);
-        a.fixarCondicioRelativa(m, nombreClics);
+        a.fixarCondicioRelativa(m, nombreClics, this);
+    }
+    
+    public void fixarCondicioRelativa(Relativa r, Meme m) {
+        m.fixarCondicioRelativa(r);
     }
     
     public void fixarCondicioAbsoluta(int idAccio, int nombreClics) {
