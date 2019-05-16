@@ -10,11 +10,11 @@ package remena_nena.Domini;
  * @author victo
  */
 public class Condicio {
-    private static int comptador = 0;
-    private int id;
-    private int clics;
-    private int clics_necessaris;
-    private Accio compleix;
+    protected static int comptador = 0;
+    protected int id;
+    protected int clics;
+    protected int clics_necessaris;
+    protected Accio compleix;
     
     
     Condicio() {
@@ -27,6 +27,10 @@ public class Condicio {
         clics = 0;
         clics_necessaris = nombreClics;
         compleix = idAccio;
+    }
+    
+    protected void accioEcecutada(){
+        compleix.accioExecutada();
     }
     
 }

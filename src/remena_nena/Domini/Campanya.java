@@ -45,6 +45,9 @@ public class Campanya {
        }
        if(!trobat) etapa_activa = null;
    }
+   public void activarEtapa(Etapa e){
+       this.iniciades.add(e);
+   }
    
    public String getnom(){
        return nom;
@@ -125,6 +128,15 @@ public class Campanya {
        inicial.iniciarCampanya();
        iniciades.add(inicial);
        
+   }
+   
+   public void FinalitzarCampanya(){
+       iniciada = false;
+       for(int i = 0; i<iniciades.size(); i++){
+           Etapa e = iniciades.get(i);
+           e.FinalitzarCampanya();
+       }
+       iniciades = new ArrayList<Etapa>();
    }
       
 }

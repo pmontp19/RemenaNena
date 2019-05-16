@@ -22,4 +22,12 @@ public class Sequencia extends Accio {
     public void encadenarSequencia(Etapa eDesti) {
         iniciacio.add(eDesti);
     }
+    
+    public void accioExecutada(){
+        utilitzat = true;
+        for(int i = 0; i<iniciacio.size();i++){
+            Etapa e = iniciacio.get(i);
+            e.activarMeme(e);
+        }
+    }
 }

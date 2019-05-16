@@ -18,4 +18,8 @@ public class Enregistrament {
         clics = 0;
     }
     
+    public void rebreClic(){
+        clics++;
+    }
+    
 }

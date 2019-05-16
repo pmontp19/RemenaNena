@@ -17,6 +17,7 @@ public class Controlador {
     private ArrayList<Campanya> campanyes;
     private ArrayList<Meme> memes;
     private Campanya c_activa;
+    private Meme m_actiu;
     private boolean finalitzat;
 
     public Controlador() {
@@ -67,6 +68,11 @@ public class Controlador {
         c_activa.fiAccio();
         c_activa = null;
     }
+    
+    public void rebreClic(String idMeme){
+        Meme m = getMeme(idMeme);
+        m.rebreClic();
+    }
 
     public void indicarMeme(String idMeme) {
         Meme m = getMeme(idMeme);
@@ -102,6 +108,13 @@ public class Controlador {
         }
     }
     
+    public void FinalitzarCampanya(String nomCampanya){
+        Campanya c = getCampanya(nomCampanya);
+        if(c.getIniciada()){
+            c.FinalitzarCampanya();
+        }
+    }
+    
     public void fixarCondicioRelativa(String idCampanya, String idEtapa, int idAccio, String idMeme, int nombreClics) {
         /* PRE Campanya c existeix */
         Campanya c = getCampanya(idCampanya);
@@ -125,9 +138,19 @@ public class Controlador {
        c_activa = c;
    }
    
+   
    public void crearEtapa(String nomEtapa) {
        c_activa.crearEtapa(nomEtapa);
    }
+   
+    public void memeActiu(String idMeme) {
+       Meme m = getMeme(idMeme);
+       m_actiu = m;
+   }
+    
+    public Meme returnActiu(){
+        return m_actiu;
+    }
    
    public void seleccionarMeme(String idMeme) {
        c_activa.seleccionarMeme(getMeme(idMeme));
@@ -156,7 +179,7 @@ public class Controlador {
         Meme m = null;
         while (i < memes.size() && !trobat) {
             m = memes.get(i);
-            if (m.getId().equals(idMeme)) {
+            if (m.getId() == idMeme) {
                 trobat = true;
             }
             i++;

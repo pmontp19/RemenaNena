@@ -16,7 +16,8 @@ public class Meme {
     private int clics;
     private Enregistrament total;
     private ArrayList<Enregistrament> llibertat;
-    private ArrayList<Etapa> emes;
+    private ArrayList<Etapa> actives;
+    private ArrayList<Relativa> enllaça;
     private int Etapes_actives;
     
     public Meme(String idmeme){
@@ -26,6 +27,7 @@ public class Meme {
         Etapes_actives = 0;
         total = new Enregistrament();
         llibertat = new ArrayList<Enregistrament>();
+        actives = new ArrayList<Etapa>();
     }
     
     public String getId(){
@@ -35,10 +37,40 @@ public class Meme {
     public void activarMemes(Etapa e){
         lliure = false;
         Etapes_actives++;
+        actives.add(e);
         
     }
     public boolean getLlibertad(){
         return lliure;
+    }
+    
+    public void FinalitzarEtapa(Etapa e){
+        Etapes_actives--;
+        boolean trobat = false;
+        int i = 0;
+        while(i<actives.size() && !trobat){
+            Etapa et = actives.get(i);
+            if(et.equals(e)){
+                actives.remove(i);
+                trobat = true;
+            }
+            else i++;
+        }
+        if(Etapes_actives == 0){
+            lliure = true;
+        }
+    }
+    
+    public void rebreClic(){
+        clics++;
+        if(lliure){
+            total.rebreClic();
+        }
+        for(int i = 0; i<enllaça.size(); i++){
+            Relativa r = enllaça.get(i);
+            r.rebreClic();
+        }
+        
     }
     
 }

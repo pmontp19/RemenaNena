@@ -13,7 +13,9 @@ public class Accio {
     protected static int comptador = 0;
     protected int id;
     protected boolean utilitzat;
-    protected ArrayList<Condicio> compleix;
+    protected  ArrayList<Condicio> compleix;
+    protected Etapa e;
+
     
     // constructor per defecte
     public Accio() {
@@ -43,5 +45,11 @@ public class Accio {
     public int getId() {
         return id;
     }
+
+    public void accioExecutada() {
+        
+    }
+    
+    
     
 }

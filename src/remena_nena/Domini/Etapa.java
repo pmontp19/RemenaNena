@@ -115,4 +115,21 @@ public class Etapa {
         if(!trobat) m = null;
         return m;
     }
+    
+    public void FinalitzarCampanya(){
+        iniciada = false;
+        for(int i = 0; i<emes.size();i++){
+            Meme m = emes.get(i);
+            m.FinalitzarEtapa(this);
+        }
+    }
+    public void activarMeme(Etapa e){
+        iniciada = true;
+        for(int i = 0; i<emes.size();i++){
+            Meme m = emes.get(i);
+            m.activarMemes(e);
+            forma.activarEtapa(this);
+        }
+        
+    }
 }
