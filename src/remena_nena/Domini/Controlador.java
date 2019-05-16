@@ -29,6 +29,10 @@ public class Controlador {
         campanyes = d.obtenirCampanyes();
         memes = d.obtenirMemes();
     }
+    
+    public void setMemesIni(ArrayList<Meme> memes) {
+        this.memes = memes;
+    }
 
     public void novaInicial(String nomCampanya, String nomInicial) {
         c_activa = new Campanya(nomCampanya, nomInicial);

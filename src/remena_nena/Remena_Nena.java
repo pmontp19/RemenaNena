@@ -20,7 +20,10 @@ public class Remena_Nena {
     public static void main(String[] args) {
         // TODO code application logic here
         Dades info_inicial = new Dades();
-        Controlador k = new Controlador(info_inicial);
+        //Controlador k = new Controlador(info_inicial);
+        Controlador k = new Controlador();
+        k.setMemesIni(info_inicial.obtenirMemes());
+        info_inicial.iniciarCampanya(k);
         FinestraInicial pantallaInicial = new FinestraInicial(k);
         Inicial primera_pantalla = new Inicial(pantallaInicial);
         primera_pantalla.setVisible(true);
