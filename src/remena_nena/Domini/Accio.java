@@ -29,9 +29,9 @@ public class Accio {
         compleix = new ArrayList<>();
     }
     
-    public void fixarCondicioRelativa(String idMeme, int nombreClics) 
+    public void fixarCondicioRelativa(Meme m, int nombreClics) 
     {
-        Relativa r = new Relativa(idMeme, this, nombreClics);
+        Relativa r = new Relativa(m, this, nombreClics);
         compleix.add(r);
     }
     

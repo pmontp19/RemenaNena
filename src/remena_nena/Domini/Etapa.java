@@ -62,10 +62,10 @@ public class Etapa {
         lligam.add(d);
     }
 
-    public void fixarCondicioRelativa(int idAccio, String idMeme, int nombreClics) {
+    public void fixarCondicioRelativa(int idAccio, Meme m, int nombreClics) {
         /* PRE Accio existeix */
         Accio a = getAccio(idAccio);
-        a.fixarCondicioRelativa(idMeme, nombreClics);
+        a.fixarCondicioRelativa(m, nombreClics);
     }
     
     public void fixarCondicioAbsoluta(int idAccio, int nombreClics) {

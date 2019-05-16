@@ -98,7 +98,8 @@ public class Controlador {
     public void fixarCondicioRelativa(String idCampanya, String idEtapa, int idAccio, String idMeme, int nombreClics) {
         /* PRE Campanya c existeix */
         Campanya c = getCampanya(idCampanya);
-        c.fixarCondicioRelativa(idEtapa, idAccio, idMeme, nombreClics);
+        Meme m = getMeme(idMeme);
+        c.fixarCondicioRelativa(idEtapa, idAccio, m, nombreClics);
     }
     
    public void fixarCondicioAbsoluta(String idCampanya, int idAccio, String idEtapa, int nombreClics) {

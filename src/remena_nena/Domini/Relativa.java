@@ -10,11 +10,11 @@ package remena_nena.Domini;
  * @author pere
  */
 public class Relativa extends Condicio {
-    private final String enllaca; // pendent de saber si es objecte o id
+    private final Meme enllaca; // pendent de saber si es objecte o id
     
-    Relativa(String idMeme, Accio idAccio, int nombreClics)
+    Relativa(Meme m, Accio idAccio, int nombreClics)
     {
         super(nombreClics, idAccio);
-        this.enllaca = idMeme;
+        this.enllaca = m;
     }
 }
