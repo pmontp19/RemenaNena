@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package remena_nena.pantalles;
+
+import javax.swing.JOptionPane;
 import remena_nena.Interficie.FinestraInicial;
 
 /**
@@ -11,34 +13,43 @@ import remena_nena.Interficie.FinestraInicial;
  * @author victo
  */
 public class Inicial extends javax.swing.JFrame {
+
     FinestraInicial inicial;
+
     /**
      * Creates new form Inicial
      */
     public Inicial(FinestraInicial a) {
         inicial = a;
         initComponents();
+
         llistaCampanyes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = a.getCampanyes();
+
             @Override
-            public int getSize() { return strings.length; }
+            public int getSize() {
+                return strings.length;
+            }
+
             @Override
-            public String getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) {
+                return strings[i];
+            }
         });
         llistaMemes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = a.getMemes();
+
             @Override
-            public int getSize() { 
-                return strings.length; 
+            public int getSize() {
+                return strings.length;
             }
+
             @Override
-            public String getElementAt(int i) { 
-                return strings[i]; 
+            public String getElementAt(int i) {
+                return strings[i];
             }
         });
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,9 +68,9 @@ public class Inicial extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        llistaCampanyes = new javax.swing.JList<String>();
+        llistaCampanyes = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        llistaMemes = new javax.swing.JList<String>();
+        llistaMemes = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -87,16 +98,17 @@ public class Inicial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Remena Nena");
 
         jLabel2.setText("Campanyes");
 
         jLabel3.setText("Memes");
 
-        llistaCampanyes.setModel(new javax.swing.AbstractListModel() {
+        llistaCampanyes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         llistaCampanyes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,10 +117,10 @@ public class Inicial extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(llistaCampanyes);
 
-        llistaMemes.setModel(new javax.swing.AbstractListModel() {
+        llistaMemes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         llistaMemes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,6 +155,11 @@ public class Inicial extends javax.swing.JFrame {
         jButton6.setText("Finalitzar Campanya");
 
         jButton7.setText("Afegir Etapa");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,20 +167,17 @@ public class Inicial extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -172,6 +186,10 @@ public class Inicial extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,10 +225,14 @@ public class Inicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void llistaCampanyesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_llistaCampanyesMouseClicked
-        String s= llistaCampanyes.getSelectedValue();
-        SeleccionarCampanya SC = new SeleccionarCampanya(inicial.controladorSel(s),s);
-        SC.setVisible(true);
+        if (evt.getClickCount() == 2) {
+            String s = llistaCampanyes.getSelectedValue();
+            SeleccionarCampanya SC = new SeleccionarCampanya(inicial.controladorSel(s), s);
+            SC.setVisible(true);
+        }
+
     }//GEN-LAST:event_llistaCampanyesMouseClicked
 
     private void llistaMemesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_llistaMemesMouseClicked
@@ -231,6 +253,18 @@ public class Inicial extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        if (!llistaCampanyes.isSelectionEmpty()) {
+            AfegirEtapa e_nova = new AfegirEtapa(inicial.afegirEtapa(llistaCampanyes.getSelectedValue()));
+            this.setVisible(false);
+            e_nova.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona una campanya de la llista per continuar","ALERTA", JOptionPane.WARNING_MESSAGE);
+
+        }
+
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments

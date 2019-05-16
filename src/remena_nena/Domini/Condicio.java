@@ -10,15 +10,23 @@ package remena_nena.Domini;
  * @author victo
  */
 public class Condicio {
-    private String id;
+    private static int comptador = 0;
+    private int id;
     private int clics;
     private int clics_necessaris;
+    private Accio compleix;
     
     
-    public Condicio(String idCondicio, int nombreClics){
-        id = idCondicio;
+    Condicio() {
+        id = comptador++;
+        clics = 0;
+    }
+    
+    Condicio(int nombreClics, Accio idAccio) {
+        id = comptador++;
         clics = 0;
         clics_necessaris = nombreClics;
+        compleix = idAccio;
     }
     
 }

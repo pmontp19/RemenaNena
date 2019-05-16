@@ -52,4 +52,9 @@ public class FinestraInicial {
         return new FinestraSeleccionarCampanya(k,s);
     }
     
+    public FinestraAfegirEtapa afegirEtapa(String campanya) {
+        k.seleccionarCampanya(campanya);
+        return new FinestraAfegirEtapa(k);
+    }
+    
 }

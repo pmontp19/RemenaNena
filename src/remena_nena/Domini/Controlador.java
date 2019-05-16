@@ -94,6 +94,45 @@ public class Controlador {
             c_activa = null;
         }
     }
+    
+    public void fixarCondicioRelativa(String idCampanya, String idEtapa, int idAccio, String idMeme, int nombreClics) {
+        /* PRE Campanya c existeix */
+        Campanya c = getCampanya(idCampanya);
+        Meme m = getMeme(idMeme);
+        c.fixarCondicioRelativa(idEtapa, idAccio, m, nombreClics);
+    }
+    
+   public void fixarCondicioAbsoluta(String idCampanya, int idAccio, String idEtapa, int nombreClics) {
+       Campanya c = getCampanya(idCampanya);
+       c.fixarCondicioAbsoluta(idAccio, idEtapa, nombreClics);
+   }
+   
+   public void seleccionarCampanya(String idCampanya) {
+       /**
+        * existeix campanya
+        * ass. inicial<campanya,etapa>
+        * no c_activa
+        */
+
+       Campanya c = getCampanya(idCampanya);
+       c_activa = c;
+   }
+   
+   public void crearEtapa(String nomEtapa) {
+       c_activa.crearEtapa(nomEtapa);
+   }
+   
+   public void seleccionarMeme(String idMeme) {
+       c_activa.seleccionarMeme(getMeme(idMeme));
+   }
+   
+   public void fiSeleccionar() {
+       c_activa.fiSeleccionar();
+   }
+   
+   public void fiAfegir() {
+       c_activa = null;
+   }
 
     public ArrayList<Campanya> getCampanyes() {
         return campanyes;
@@ -135,17 +174,19 @@ public class Controlador {
         }
         return c;
     }
+    
+    public String getNomCampanyaActiva() {
+        return c_activa.getnom();
+    }
 
     // comprovacions
     public boolean comprovaCampanya(String nom) {
         Campanya c = getCampanya(nom);
-        boolean trobat;
-        if (c != null) {
-            trobat = true;
-        } else {
-            trobat = false;
-        }
-        return trobat;
+        return c != null;
     }
-
+    
+    public boolean comprovaEtapa(String nom) {
+        Etapa e = c_activa.getEtapa(nom);
+        return e != null;
+    }
 }
