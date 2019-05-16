@@ -174,17 +174,19 @@ public class Controlador {
         }
         return c;
     }
+    
+    public String getNomCampanyaActiva() {
+        return c_activa.getnom();
+    }
 
     // comprovacions
     public boolean comprovaCampanya(String nom) {
         Campanya c = getCampanya(nom);
-        boolean trobat;
-        if (c != null) {
-            trobat = true;
-        } else {
-            trobat = false;
-        }
-        return trobat;
+        return c != null;
     }
-
+    
+    public boolean comprovaEtapa(String nom) {
+        Etapa e = c_activa.getEtapa(nom);
+        return e != null;
+    }
 }
