@@ -15,6 +15,7 @@ public class Accio {
     protected boolean utilitzat;
     protected  ArrayList<Condicio> compleix;
     protected Etapa e;
+
     
     // constructor per defecte
     public Accio() {

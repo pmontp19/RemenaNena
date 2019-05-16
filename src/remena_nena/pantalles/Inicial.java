@@ -262,8 +262,15 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        if (!llistaCampanyes.isSelectionEmpty()) {
+            String c = llistaCampanyes.getSelectedValue();
+            SelecEncadenament sel = new SelecEncadenament(inicial.afegirEncadenament(c));
+            this.setVisible(false);
+            sel.setVisible(true);
+        } 
+        else {
+            JOptionPane.showMessageDialog(this, "Selecciona una campanya de la llista per continuar","ALERTA", JOptionPane.WARNING_MESSAGE);
+        }    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
