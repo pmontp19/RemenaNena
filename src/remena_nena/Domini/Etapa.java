@@ -97,4 +97,22 @@ public class Etapa {
             m.activarMemes(this);
         }
     }
+    
+    public boolean esta_iniciada(){
+        return iniciada;
+    }
+    public Meme getMeme(String idMeme){
+        boolean trobat = false;
+        int i = 0;
+        Meme m = null;
+        while(i<emes.size() && !trobat){
+            m = emes.get(i);
+            if (m.getId().equals(idMeme)) {
+                trobat = true;
+            }
+            else i++;
+        }
+        if(!trobat) m = null;
+        return m;
+    }
 }

@@ -37,5 +37,8 @@ public class Meme {
         Etapes_actives++;
         
     }
+    public boolean getLlibertad(){
+        return lliure;
+    }
     
 }
