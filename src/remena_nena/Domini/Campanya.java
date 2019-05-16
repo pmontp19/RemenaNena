@@ -81,10 +81,10 @@ public class Campanya {
        etapa_activa.encadenarFinalitzador();
    }
    
-   public void fixarCondicioRelativa(String idEtapa, int idAccio, String idMeme, int nombreClics) {
+   public void fixarCondicioRelativa(String idEtapa, int idAccio, Meme m, int nombreClics) {
         /* PRE Etapa existeix */
         Etapa e = getEtapa(idEtapa);
-        e.fixarCondicioRelativa(idAccio, idMeme, nombreClics);
+        e.fixarCondicioRelativa(idAccio, m, nombreClics);
    }
    
    public void fixarCondicioAbsoluta(int idAccio, String idEtapa, int nombreClics) {
