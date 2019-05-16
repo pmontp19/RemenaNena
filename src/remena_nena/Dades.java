@@ -37,6 +37,7 @@ public class Dades {
         k.encadenarFinalitzador();
         k.fiAccio();
         k.fixarCondicioAbsoluta(idCampanya, 0, idEtapa, 100);
+        k.fixarCondicioRelativa(idCampanya, idEtapa, 0, "Judicis", 100);
     }
     private void iniciarMemes(){
         m = new ArrayList<Meme>();

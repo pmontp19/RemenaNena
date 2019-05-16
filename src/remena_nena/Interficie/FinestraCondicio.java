@@ -89,7 +89,7 @@ public class FinestraCondicio {
     }
     
     public void acceptarAbsoluta() {
-        k.fixarCondicioRelativa(idCampanya, e_selec.getId(), idAccio, idMeme, clicsCondicio);
+        k.fixarCondicioAbsoluta(idCampanya, idAccio, e_selec.getId(), clicsCondicio);
     }
     
         
