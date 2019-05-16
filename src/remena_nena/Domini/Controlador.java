@@ -95,6 +95,13 @@ public class Controlador {
         }
     }
     
+    public void IniciarCampanya(String nomCampanya){
+        Campanya c = getCampanya(nomCampanya);
+        if(!c.getIniciada()){
+            c.iniciarCampanya();
+        }
+    }
+    
     public void fixarCondicioRelativa(String idCampanya, String idEtapa, int idAccio, String idMeme, int nombreClics) {
         /* PRE Campanya c existeix */
         Campanya c = getCampanya(idCampanya);

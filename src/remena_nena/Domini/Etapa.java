@@ -16,9 +16,8 @@ public class Etapa {
     private String nom;
     private boolean iniciada;
     private int clics;
-    private ArrayList<Meme> emès;
+    private ArrayList<Meme> emes;
     private ArrayList<Accio> lligam;
-    private String forma;
     private Sequencia seqActiva;
     private Campanya forma;
 
@@ -26,7 +25,7 @@ public class Etapa {
         nom = nomEtapa;
         iniciada = false;
         clics = 0;
-        emès = new ArrayList<Meme>();
+        emes = new ArrayList<Meme>();
         lligam = new ArrayList<>();
         forma = c;
     }
@@ -90,5 +89,12 @@ public class Etapa {
             }
         }
         return null;
+    }
+    public void iniciarCampanya(){
+        iniciada = true;
+        for(int i = 0; i<emes.size();i++){
+            Meme m = emes.get(i);
+            m.activarMemes(this);
+        }
     }
 }

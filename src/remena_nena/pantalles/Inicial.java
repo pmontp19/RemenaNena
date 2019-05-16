@@ -7,6 +7,7 @@ package remena_nena.pantalles;
 
 import javax.swing.JOptionPane;
 import remena_nena.Interficie.FinestraInicial;
+import remena_nena.Domini.*;
 
 /**
  *
@@ -68,13 +69,13 @@ public class Inicial extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        llistaCampanyes = new javax.swing.JList<>();
+        llistaCampanyes = new javax.swing.JList<String>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        llistaMemes = new javax.swing.JList<>();
+        llistaMemes = new javax.swing.JList<String>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        ButtonIniciarCamp = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
@@ -105,10 +106,10 @@ public class Inicial extends javax.swing.JFrame {
 
         jLabel3.setText("Memes");
 
-        llistaCampanyes.setModel(new javax.swing.AbstractListModel<String>() {
+        llistaCampanyes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         llistaCampanyes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,10 +118,10 @@ public class Inicial extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(llistaCampanyes);
 
-        llistaMemes.setModel(new javax.swing.AbstractListModel<String>() {
+        llistaMemes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         llistaMemes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -150,7 +151,12 @@ public class Inicial extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Iniciar Campanya");
+        ButtonIniciarCamp.setText("Iniciar Campanya");
+        ButtonIniciarCamp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonIniciarCampActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Finalitzar Campanya");
 
@@ -171,7 +177,7 @@ public class Inicial extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonIniciarCamp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(39, 39, 39)
@@ -214,7 +220,7 @@ public class Inicial extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)
+                        .addComponent(ButtonIniciarCamp)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -259,12 +265,30 @@ public class Inicial extends javax.swing.JFrame {
             AfegirEtapa e_nova = new AfegirEtapa(inicial.afegirEtapa(llistaCampanyes.getSelectedValue()));
             this.setVisible(false);
             e_nova.setVisible(true);
-        } else {
+        } 
+        else {
             JOptionPane.showMessageDialog(this, "Selecciona una campanya de la llista per continuar","ALERTA", JOptionPane.WARNING_MESSAGE);
-
         }
 
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void ButtonIniciarCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIniciarCampActionPerformed
+        if (!llistaCampanyes.isSelectionEmpty()) {
+            Campanya ca = inicial.getCampanya(llistaCampanyes.getSelectedValue());
+            if(ca.getIniciada()){
+                JOptionPane.showMessageDialog(this, "No es pot iniciar una campanya previament iniciada","ALERTA", JOptionPane.WARNING_MESSAGE);
+            }
+            else{
+                Controlador k = inicial.getControlador();
+                k.IniciarCampanya(llistaCampanyes.getSelectedValue());
+                JOptionPane.showMessageDialog(this, "Campanya iniciada correctament","ALERTA", JOptionPane.WARNING_MESSAGE);
+            }
+            
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Selecciona una campanya de la llista per continuar","ALERTA", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_ButtonIniciarCampActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,11 +326,11 @@ public class Inicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonIniciarCamp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;

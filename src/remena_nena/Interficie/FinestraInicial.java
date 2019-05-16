@@ -24,6 +24,11 @@ public class FinestraInicial {
         m = k.getMemes();
     }
     
+    public Campanya getCampanya(String s){
+        Campanya retornada = k.getCampanya(s);
+        return retornada;
+    }
+    
     public String[] getCampanyes(){
         String[] camp = new String[c.size()];
         int i = 0;
@@ -55,6 +60,10 @@ public class FinestraInicial {
     public FinestraAfegirEtapa afegirEtapa(String campanya) {
         k.seleccionarCampanya(campanya);
         return new FinestraAfegirEtapa(k);
+    }
+    
+    public Controlador getControlador(){
+        return k;
     }
     
 }

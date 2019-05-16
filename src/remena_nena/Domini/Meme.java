@@ -17,11 +17,13 @@ public class Meme {
     private Enregistrament total;
     private ArrayList<Enregistrament> llibertat;
     private ArrayList<Etapa> emes;
+    private int Etapes_actives;
     
     public Meme(String idmeme){
         nom = idmeme;
         lliure = false;
         clics = 0;  
+        Etapes_actives = 0;
         total = new Enregistrament();
         llibertat = new ArrayList<Enregistrament>();
     }
@@ -29,5 +31,11 @@ public class Meme {
     public String getId(){
           return nom;
       }
+    
+    public void activarMemes(Etapa e){
+        lliure = false;
+        Etapes_actives++;
+        
+    }
     
 }

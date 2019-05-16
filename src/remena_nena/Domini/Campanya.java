@@ -119,5 +119,12 @@ public class Campanya {
    public ArrayList<Etapa> getEtapasForma() {
        return forma;
    }
+   
+   public void iniciarCampanya(){
+       iniciada = true;
+       inicial.iniciarCampanya();
+       iniciades.add(inicial);
+       
+   }
       
 }
