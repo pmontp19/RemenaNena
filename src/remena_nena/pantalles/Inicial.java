@@ -69,9 +69,9 @@ public class Inicial extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        llistaCampanyes = new javax.swing.JList<String>();
+        llistaCampanyes = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        llistaMemes = new javax.swing.JList<String>();
+        llistaMemes = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -106,10 +106,10 @@ public class Inicial extends javax.swing.JFrame {
 
         jLabel3.setText("Memes");
 
-        llistaCampanyes.setModel(new javax.swing.AbstractListModel() {
+        llistaCampanyes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         llistaCampanyes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -118,10 +118,10 @@ public class Inicial extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(llistaCampanyes);
 
-        llistaMemes.setModel(new javax.swing.AbstractListModel() {
+        llistaMemes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         llistaMemes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -273,7 +273,15 @@ public class Inicial extends javax.swing.JFrame {
         }    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        if (!llistaCampanyes.isSelectionEmpty()) {
+            String c = llistaCampanyes.getSelectedValue();
+            fixarCondicio fcond = new fixarCondicio(inicial.afegirCondicio(c));
+            this.setVisible(false);
+            fcond.setVisible(true);
+        } 
+        else {
+            JOptionPane.showMessageDialog(this, "Selecciona una campanya de la llista per continuar","ALERTA", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

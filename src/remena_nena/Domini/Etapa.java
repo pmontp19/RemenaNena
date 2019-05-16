@@ -84,6 +84,10 @@ public class Etapa {
     public ArrayList<Meme> getEmesos() {
         return emes;
     }
+    
+    public ArrayList<Accio> getAccions() {
+        return lligam;
+    }
 
     // finds
     public Accio getAccio(int id) {
@@ -134,6 +138,6 @@ public class Etapa {
             m.activarMemes(e);
             forma.activarEtapa(this);
         }
-        
     }
+    
 }
