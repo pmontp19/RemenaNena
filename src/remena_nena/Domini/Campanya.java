@@ -138,5 +138,15 @@ public class Campanya {
        }
        iniciades = new ArrayList<Etapa>();
    }
+   public void borrarEtapa(Etapa e){
+       int i = 0;
+       boolean trobat = false;
+       while(i<iniciades.size() && !trobat){
+           Etapa et = iniciades.get(i);
+           if(et.equals(e)) iniciades.remove(i);
+           else i++;           
+       }
+       
+   }
       
 }

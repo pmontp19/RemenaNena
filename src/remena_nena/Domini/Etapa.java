@@ -18,6 +18,7 @@ public class Etapa {
     private int clics;
     private ArrayList<Meme> emes;
     private ArrayList<Accio> lligam;
+    private ArrayList<Condicio> vinculada;
     private Sequencia seqActiva;
     private Campanya forma;
 
@@ -26,7 +27,8 @@ public class Etapa {
         iniciada = false;
         clics = 0;
         emes = new ArrayList<Meme>();
-        lligam = new ArrayList<>();
+        lligam = new ArrayList<Accio>();
+        vinculada = new ArrayList<Condicio>();
         forma = c;
     }
 
@@ -42,6 +44,19 @@ public class Etapa {
         Sequencia s = new Sequencia();
         lligam.add(s);
         seqActiva = s;
+    }
+    
+    public void afegeixCondicio(Condicio c){
+        vinculada.add(c);
+    }
+    
+    public void afegeixAccio(Accio a){
+        lligam.add(a);
+    }
+    
+    public void crearTancat(){
+        Tancat s = new Tancat(this);
+        lligam.add(s);
     }
 
     public void encadenarSequencia(Etapa eDesti) {
@@ -135,5 +150,8 @@ public class Etapa {
             forma.activarEtapa(this);
         }
         
+    }
+    public void EsborrarEtapaAcabada(){
+        forma.borrarEtapa(this);
     }
 }
