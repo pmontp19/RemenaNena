@@ -26,8 +26,41 @@ public class Controlador {
     }
 
     public Controlador(Dades d) {
-        campanyes = d.obtenirCampanyes();
         memes = d.obtenirMemes();
+        campanyes = d.obtenirCampanyes();
+        
+    }
+    public Controlador(String s){
+        campanyes = new ArrayList<Campanya>();
+        memes = new ArrayList<Meme>();
+        nouMeme("Pactes inconvenients");
+        nouMeme("Corrupcio");
+        nouMeme("Judicis");
+        nouMeme("Candidat enemic plorant");
+        nouMeme("Gestio terrible");
+        nouMeme("Gestió de crisis"); 
+        novaInicial("Eleccions municipals","Pre eleccions");
+        Etapa e = c_activa.obteEtapa();
+        e.seleccionarMemeID("Judicis");
+        c_activa.crearEtapa("Meeting a l'ajuntament");
+        c_activa.crearEtapa("Apropament a la gent");
+        novaInicial("Eleccions Europees","Primer debat");
+        c_activa.crearEtapa("Segon debat");
+        c_activa.crearEtapa("Tercer debat");
+        novaInicial("Eleccions Generals","Ineficiencia del actual Gobern");
+        c_activa.crearEtapa("Nosaltres ho farem millor");
+         
+    }
+    public void inserirMemeEtapa(String s, String r, String t){
+        Campanya c = getCampanya(s);
+        Etapa e = c.getEtapa(r);
+        Meme m = e.getMeme(t);
+        e.inserirMeme(m);                
+    }
+    
+    public void nouMeme(String s){
+        Meme m = new Meme(s);
+        memes.add(m);
     }
     
     public void setMemesIni(ArrayList<Meme> memes) {

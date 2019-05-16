@@ -24,6 +24,7 @@ public class Remena_Nena {
         Controlador k = new Controlador();
         k.setMemesIni(info_inicial.obtenirMemes());
         info_inicial.iniciarCampanya(k);
+
         FinestraInicial pantallaInicial = new FinestraInicial(k);
         Inicial primera_pantalla = new Inicial(pantallaInicial);
         primera_pantalla.setVisible(true);
