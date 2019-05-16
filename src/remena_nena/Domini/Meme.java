@@ -28,6 +28,7 @@ public class Meme {
         total = new Enregistrament();
         llibertat = new ArrayList<Enregistrament>();
         actives = new ArrayList<Etapa>();
+        enllaça = new ArrayList<Relativa>();
     }
     
     public String getId(){
