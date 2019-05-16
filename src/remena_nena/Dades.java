@@ -24,12 +24,16 @@ public class Dades {
     private void iniciarCampanya(){
         c = new ArrayList<Campanya>();
         Campanya nova = new Campanya("Eleccions municipals","Pre eleccions");
+        nova.IndicarMemePerDades("Pre eleccions","Corrupcio");
+        nova.crearEtapa("Meeting a l'ajuntament");
         c.add(nova);
         nova = new Campanya("Eleccions Europees","Primer debat");
         nova.crearEtapa("Segon debat");
         nova.crearEtapa("Tercer debat");
         c.add(nova);
         nova = new Campanya("Eleccions Generals","Ineficiencia del actual Gobern");
+        nova.crearEtapa("Nosaltres ho farem millor");
+        nova.crearEtapa("Voteume");
         c.add(nova);
     }
     private void iniciarMemes(){

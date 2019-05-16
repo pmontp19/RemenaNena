@@ -95,6 +95,10 @@ public class Etapa {
     public void seleccionarMeme(Meme m) {
         emes.add(m);
     }
+    public void seleccionarMemeID(String s) {
+        Meme m = getMeme(s);
+        emes.add(m);
+    }
 
     public ArrayList<Meme> getEmesos() {
         return emes;
