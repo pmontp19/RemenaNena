@@ -37,11 +37,14 @@ public class Dades {
         k.indicarMeme("Gestió de crisis");
         k.fiSeleccionar();
         k.fiAfegir();
-        k.iniciAccio(idCampanya, idEtapa);
-        k.encadenarFinalitzador();
+        k.iniciAccio(idCampanya, "fase 1");
+        k.crearSeq();
+        k.encadenarSequencia(idCampanya, idEtapa);
+        k.fiSequencia();
         k.fiAccio();
-        k.fixarCondicioAbsoluta(idCampanya, 0, idEtapa, 100);
-        k.fixarCondicioRelativa(idCampanya, idEtapa, 0, "Judicis", 100);
+        k.fixarCondicioAbsoluta(idCampanya, 0, "fase 1", 100);
+        k.fixarCondicioRelativa(idCampanya, "fase 1", 0, "Judicis", 100);
+        k.rebreClic("Judicis");
     }
     private void iniciarMemes(){
         m = new ArrayList<Meme>();

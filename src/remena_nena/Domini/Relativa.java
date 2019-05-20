@@ -19,7 +19,7 @@ public class Relativa extends Condicio {
     }
     public void rebreClic(){
         clics++;
-        if(clics == clics_necessaris){
+        if(clics == clics_necessaris) {
             this.accioEcecutada();
         }
     }

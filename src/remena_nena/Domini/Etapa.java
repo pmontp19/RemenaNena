@@ -169,4 +169,10 @@ public class Etapa {
             a.rebreClic();
         }
     }
+    
+    public void lliberaMeme() {
+        for (Meme meme : emes) {
+            meme.lliure(this); 
+        }
+    }
 }

@@ -19,6 +19,7 @@ public class Tancat extends Accio{
     
     public void accioExecutada(){
         e.FinalitzarCampanya();
+        e.lliberaMeme();
         e.EsborrarEtapaAcabada();
     }
     

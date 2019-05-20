@@ -46,6 +46,10 @@ public class Meme {
         return lliure;
     }
     
+    public int getClics() {
+        return clics;
+    }
+    
     public void FinalitzarEtapa(Etapa e){
         Etapes_actives--;
         boolean trobat = false;
@@ -80,6 +84,22 @@ public class Meme {
     
     public void fixarCondicioRelativa(Relativa r) {
         enllaca.add(r);
+    }
+    
+    public boolean lliure(Etapa e) {
+        if (Etapes_actives == 0) {
+            lliure = true;
+            Etapes_actives--;
+            actives.remove(e);
+            creaEnregistrament();
+            clics = 0;
+        }
+        return lliure;
+    }
+    
+    public void creaEnregistrament() {
+        Enregistrament enr = new Enregistrament(clics);
+        llibertat.add(enr);
     }
     
 }
