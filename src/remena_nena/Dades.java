@@ -23,6 +23,7 @@ public class Dades {
         //iniciarCampanya();
     }
     public void iniciarCampanya(Controlador k){
+        String idMeme;
         String idCampanya = "Destruir oponents";
         String idEtapa = "fase 2";
         k.novaInicial(idCampanya, "fase 1");
@@ -37,11 +38,32 @@ public class Dades {
         k.indicarMeme("Gestió de crisis");
         k.fiSeleccionar();
         k.fiAfegir();
+        k.iniciAccio(idCampanya, "fase 1");
+        k.crearSeq();
+        k.encadenarSequencia(idCampanya, idEtapa);
+        k.fiSequencia();
+        k.fiAccio();
+        k.fixarCondicioAbsoluta(idCampanya, 0, "fase 1", 100);
+        k.fixarCondicioRelativa(idCampanya, "fase 1", 0, "Judicis", 100);
+        k.rebreClic("Judicis");
+        
+        idCampanya = "Eleccions europees";
+        idEtapa = "Adversaris";
+        idMeme = "Corrupcio";
+        k.novaInicial(idCampanya, idEtapa);
+        k.indicarMeme(idMeme);
+        k.fiCampanya();
+        k.seleccionarCampanya(idCampanya);
+        k.crearEtapa("Publicitat");
+        k.indicarMeme("Judicis");
+        k.fiSeleccionar();
+        k.fiAfegir();
         k.iniciAccio(idCampanya, idEtapa);
         k.encadenarFinalitzador();
         k.fiAccio();
-        k.fixarCondicioAbsoluta(idCampanya, 0, idEtapa, 100);
-        k.fixarCondicioRelativa(idCampanya, idEtapa, 0, "Judicis", 100);
+        k.fixarCondicioRelativa(idCampanya, idEtapa, 1, idMeme, 100);
+        k.rebreClic(idMeme);
+
     }
     private void iniciarMemes(){
         m = new ArrayList<Meme>();

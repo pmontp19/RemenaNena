@@ -14,7 +14,7 @@ public class Accio {
     protected int id;
     protected boolean utilitzat;
     protected Condicio compleix;
-    protected Etapa e;
+    protected Etapa lligam;
 
     
     // constructor per defecte
@@ -29,7 +29,7 @@ public class Accio {
         id = comptador++;
         utilitzat = false;
         compleix = null;
-        this.e = e;
+        this.lligam = e;
     }
     
     public void fixarCondicioRelativa(Meme m, int nombreClics, Etapa e) 
@@ -53,6 +53,7 @@ public class Accio {
     public void accioExecutada() {
         
     }
+   
     
     
     

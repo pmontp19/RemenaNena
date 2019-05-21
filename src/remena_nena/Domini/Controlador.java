@@ -98,7 +98,7 @@ public class Controlador {
     }
     
     public void encadenarFinalitzador() {
-        c_activa.encadenarDisparador();
+        c_activa.encadenarFinalitzador();
     }
     
     public void fiAccio() {

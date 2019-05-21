@@ -17,7 +17,7 @@ public class Finalitzador extends Accio {
         super(e);
     }
     public void accioExecutada(){
-        e.crearTancat();
+        lligam.crearTancat();
     }
     
 }

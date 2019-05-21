@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package remena_nena.Interficie;
+import java.util.ArrayList;
 import remena_nena.Domini.*;
 
 /**
@@ -14,11 +15,13 @@ public class FinestraClic {
     Controlador K;
     Meme m;
     String idMeme = "";
-    
+    ArrayList<Enregistrament> llibertat;
+
     public FinestraClic(Controlador k){
         K = k;  
         m = k.returnActiu();
         idMeme = m.getId();
+        llibertat = m.getEnregistraments();
     }
     
     public Controlador getControlador(){
@@ -33,5 +36,22 @@ public class FinestraClic {
     
     public Meme getMeme(){
         return m;
+    }
+    
+    public Enregistrament getEnregistrament(String id) {
+        for (Enregistrament enr : llibertat) {
+            if (enr.getId().equals(id)) return enr;
+        }
+        return null;
+    }
+    
+    public String[] getLlistaEnregistraments(){
+        String[] enregistraments = new String[llibertat.size()];
+        int i = 0;
+        for (Enregistrament enr : llibertat) {
+            enregistraments[i] = enr.getId();
+            i++;
+        }
+        return enregistraments;
     }
 }

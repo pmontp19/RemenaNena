@@ -86,7 +86,7 @@ public class Campanya {
        etapa_activa.encadenarDisparador(c);
    }
    
-   public void encadenarDisparador() {
+   public void encadenarFinalitzador() {
        etapa_activa.encadenarFinalitzador();
    }
    

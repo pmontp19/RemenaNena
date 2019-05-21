@@ -18,6 +18,19 @@ public class Enregistrament {
         clics = 0;
     }
     
+    public Enregistrament(int clics){
+        id = java.util.UUID.randomUUID().toString();
+        this.clics = clics;
+    }
+    
+    public String getId() {
+        return id;
+    }
+    
+    public int getClics() {
+        return clics;
+    }
+    
     public void rebreClic(){
         clics++;
     }
