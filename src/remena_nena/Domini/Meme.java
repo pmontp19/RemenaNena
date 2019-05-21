@@ -46,6 +46,10 @@ public class Meme {
         return lliure;
     }
     
+    public ArrayList<Enregistrament> getEnregistraments() {
+        return llibertat;
+    }
+    
     public int getClics() {
         return clics;
     }

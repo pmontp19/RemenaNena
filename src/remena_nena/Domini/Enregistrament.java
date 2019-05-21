@@ -23,6 +23,14 @@ public class Enregistrament {
         this.clics = clics;
     }
     
+    public String getId() {
+        return id;
+    }
+    
+    public int getClics() {
+        return clics;
+    }
+    
     public void rebreClic(){
         clics++;
     }

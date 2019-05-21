@@ -29,7 +29,7 @@ public class Condicio {
         compleix = idAccio;
     }
     
-    protected void accioEcecutada(){
+    protected void accioExecutada(){
         compleix.accioExecutada();
     }
     

@@ -164,6 +164,7 @@ public class Etapa {
     }
     
     public void rebreClic(){
+        clics++;
         for(int i = 0; i<vinculada.size(); i++){
             Absoluta a = vinculada.get(i);
             a.rebreClic();
@@ -174,5 +175,9 @@ public class Etapa {
         for (Meme meme : emes) {
             meme.lliure(this); 
         }
+    }
+    
+    public int getClics() {
+        return clics;
     }
 }
