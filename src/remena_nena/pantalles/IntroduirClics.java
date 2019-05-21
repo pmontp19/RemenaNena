@@ -31,8 +31,8 @@ public class IntroduirClics extends javax.swing.JFrame {
         }
         jProgressBar1.setVisible(false);
         carregarEnregistraments();
-        jLabel8.setText("Cap seleccionat");
-
+        jLabel8.setText("Cap seleccionat"); 
+        jLabel10.setText(String.valueOf(F.getTotalClicsEnr()));
     }
 
     protected void carregarEnregistraments() {
@@ -73,6 +73,8 @@ public class IntroduirClics extends javax.swing.JFrame {
         enrList = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,6 +120,10 @@ public class IntroduirClics extends javax.swing.JFrame {
 
         jLabel8.setText("jLabel8");
 
+        jLabel9.setText("Clics total:");
+
+        jLabel10.setText("jLabel10");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,7 +148,9 @@ public class IntroduirClics extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,10 +188,14 @@ public class IntroduirClics extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
@@ -223,9 +235,12 @@ public class IntroduirClics extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void enrListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrListMouseClicked
-        String id = enrList.getSelectedValue();
-        Enregistrament e = F.getEnregistrament(id);
-        jLabel8.setText(String.valueOf(e.getClics()));
+        if (!enrList.isSelectionEmpty()) {
+            String id = enrList.getSelectedValue();
+            Enregistrament e = F.getEnregistrament(id);
+            jLabel8.setText(String.valueOf(e.getClics()));
+        }
+
     }//GEN-LAST:event_enrListMouseClicked
 
     /**
@@ -267,6 +282,7 @@ public class IntroduirClics extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -274,6 +290,7 @@ public class IntroduirClics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;

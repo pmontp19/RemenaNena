@@ -16,12 +16,14 @@ public class FinestraClic {
     Meme m;
     String idMeme = "";
     ArrayList<Enregistrament> llibertat;
+    Enregistrament total;
 
     public FinestraClic(Controlador k){
         K = k;  
         m = k.returnActiu();
         idMeme = m.getId();
         llibertat = m.getEnregistraments();
+        total = m.getEnregistramentTotal();
     }
     
     public Controlador getControlador(){
@@ -53,5 +55,9 @@ public class FinestraClic {
             i++;
         }
         return enregistraments;
+    }
+    
+    public int getTotalClicsEnr() {
+        return total.getClics();
     }
 }

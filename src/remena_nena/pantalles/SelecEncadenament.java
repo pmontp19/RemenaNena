@@ -5,6 +5,8 @@
  */
 package remena_nena.pantalles;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import remena_nena.Interficie.FinestraEncadenament;
 import remena_nena.Interficie.FinestraInicial;
 import remena_nena.Interficie.FinestraSelecEncadenament;
@@ -27,6 +29,7 @@ public class SelecEncadenament extends javax.swing.JFrame {
         buttonGroup.add(radioSequencia);
         buttonGroup.add(radioFinal);
         buttonGroup.add(radioDisparador);
+        jLabel3.setVisible(false);
         etapesList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = finSel.getEtapes();
             public int getSize() { return strings.length; }
@@ -53,27 +56,28 @@ public class SelecEncadenament extends javax.swing.JFrame {
         radioFinal = new javax.swing.JRadioButton();
         radioSequencia = new javax.swing.JRadioButton();
         radioDisparador = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setMinimumSize(new java.awt.Dimension(450, 100));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setText("D'acord");
+        jButton3.setText("Afegir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
 
-        jButton4.setText("Cancel·la");
+        jButton4.setText("Acabar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
 
         etapesList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -109,6 +113,9 @@ public class SelecEncadenament extends javax.swing.JFrame {
         });
         getContentPane().add(radioDisparador, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,14 +127,17 @@ public class SelecEncadenament extends javax.swing.JFrame {
                 this.setVisible(false);
                 FinestraEncadenament enc = new FinestraEncadenament(finSel.getControlador());
                 AfegirDisparador finDisp = new AfegirDisparador(enc);
-                finDisp.setVisible(true);
-                
+                finDisp.setVisible(true);         
             } else if (radioFinal.isSelected()) {
                 finSel.finalitzador();
-                this.setVisible(false);
+                jLabel3.setText("Encadenament afegit amb èxit");
+                jLabel3.setForeground(Color.GREEN);
+                jLabel3.setVisible(true);
+                
+                /*this.setVisible(false);
                 FinestraInicial p = new FinestraInicial(finSel.getControlador());
                 Inicial ini = new Inicial(p);
-                ini.setVisible(true);
+                ini.setVisible(true);*/
             } else if (radioSequencia.isSelected()) {
                 finSel.dacord();
                 this.setVisible(false);
@@ -135,6 +145,8 @@ public class SelecEncadenament extends javax.swing.JFrame {
                 AfegirSeq finSeq = new AfegirSeq(enc);
                 finSeq.setVisible(true);
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona una etapa de la llista per continuar","ALERTA", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -195,6 +207,7 @@ public class SelecEncadenament extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton radioDisparador;
     private javax.swing.JRadioButton radioFinal;

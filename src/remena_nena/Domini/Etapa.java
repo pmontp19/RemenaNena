@@ -180,4 +180,8 @@ public class Etapa {
     public int getClics() {
         return clics;
     }
+    
+    public Accio getLastAccio() {
+        return lligam.get(lligam.size() - 1);
+    }
 }

@@ -123,6 +123,7 @@ public class Inicial extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        llistaMemes.setToolTipText("Fes doble clic per introduir clics");
         llistaMemes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 llistaMemesMouseClicked(evt);

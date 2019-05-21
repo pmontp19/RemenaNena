@@ -31,10 +31,9 @@ public class Meme {
         enllaca = new ArrayList<Relativa>();
     }
     
-    
     public String getId(){
           return nom;
-      }
+    }
     
     public void activarMemes(Etapa e){
         lliure = false;
@@ -48,6 +47,10 @@ public class Meme {
     
     public ArrayList<Enregistrament> getEnregistraments() {
         return llibertat;
+    }
+    
+    public Enregistrament getEnregistramentTotal() {
+        return total;
     }
     
     public int getClics() {
@@ -73,9 +76,7 @@ public class Meme {
     
     public void rebreClic(){
         clics++;
-        if(lliure){
-            total.rebreClic();
-        }
+        total.rebreClic();
         for(int i = 0; i<enllaca.size(); i++){
             Relativa r = enllaca.get(i);
             r.rebreClic();
@@ -93,7 +94,7 @@ public class Meme {
     public boolean lliure(Etapa e) {
         if (Etapes_actives == 0) {
             lliure = true;
-            Etapes_actives--;
+            //Etapes_actives--;
             actives.remove(e);
             creaEnregistrament();
             clics = 0;
