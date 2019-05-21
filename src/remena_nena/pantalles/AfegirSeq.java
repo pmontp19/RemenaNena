@@ -8,6 +8,7 @@ package remena_nena.pantalles;
 import javax.swing.JOptionPane;
 import remena_nena.Interficie.FinestraEncadenament;
 import remena_nena.Interficie.FinestraInicial;
+import remena_nena.Interficie.FinestraSelecEncadenament;
 
 /**
  *
@@ -258,9 +259,12 @@ public class AfegirSeq extends javax.swing.JFrame {
         if (etapesAdded.getModel().getSize() > 0) {
             finEn.afegirSeq();
             this.setVisible(false);
-            FinestraInicial ini = new FinestraInicial(finEn.getControlador());
+            /*FinestraInicial ini = new FinestraInicial(finEn.getControlador());
             Inicial finIni = new Inicial(ini);
-            finIni.setVisible(true);
+            finIni.setVisible(true);*/
+            FinestraSelecEncadenament nova = new FinestraSelecEncadenament(finEn.getControlador(),finEn.getNomCampanya());
+            SelecEncadenament n = new SelecEncadenament(nova);
+            n.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "S'ha d'afegir com a minim una etapa", "ERROR", JOptionPane.ERROR_MESSAGE);
 

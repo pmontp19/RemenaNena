@@ -8,6 +8,7 @@ package remena_nena.pantalles;
 import javax.swing.JOptionPane;
 import remena_nena.Interficie.FinestraEncadenament;
 import remena_nena.Interficie.FinestraInicial;
+import remena_nena.Interficie.FinestraSelecEncadenament;
 
 /**
  *
@@ -183,9 +184,12 @@ public class AfegirDisparador extends javax.swing.JFrame {
             finEn.setCampanyaDisp(campList.getSelectedValue());
             finEn.afegirDisp();
             this.setVisible(false);
-            FinestraInicial ini = new FinestraInicial(finEn.getControlador());
+          /*  FinestraInicial ini = new FinestraInicial(finEn.getControlador());
             Inicial finIni = new Inicial(ini);
-            finIni.setVisible(true);
+            finIni.setVisible(true);*/
+            FinestraSelecEncadenament nova = new FinestraSelecEncadenament(finEn.getControlador(),finEn.getNomCampanya());
+            SelecEncadenament n = new SelecEncadenament(nova);
+            n.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Selecciona una campanya", "ERROR", JOptionPane.ERROR_MESSAGE);
 

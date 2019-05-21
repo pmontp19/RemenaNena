@@ -19,7 +19,7 @@ public class FinestraSelecEncadenament {
     String idCampanya;
     String idEtapa;
 
-    FinestraSelecEncadenament(Controlador k, String idCampanya) {
+    public FinestraSelecEncadenament(Controlador k, String idCampanya) {
         this.k = k;
         this.idCampanya = idCampanya;
         Campanya c = k.getCampanya(idCampanya);
