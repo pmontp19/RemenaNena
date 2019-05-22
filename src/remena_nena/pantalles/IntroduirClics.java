@@ -226,10 +226,16 @@ public class IntroduirClics extends javax.swing.JFrame {
         }
         jProgressBar1.setVisible(false);
         carregarEnregistraments();
+        jLabel10.setText(String.valueOf(F.getTotalClicsEnr()));
         if (F.getLlibertat()) {
             jLabel5.setText("Meme lliure");
         } else {
             jLabel5.setText("Meme no lliure");
+        }
+        if (!enrList.isSelectionEmpty()) {
+            String id = enrList.getSelectedValue();
+            Enregistrament e = F.getEnregistrament(id);
+            jLabel8.setText(String.valueOf(e.getClics()));
         }
 
     }//GEN-LAST:event_jButton2ActionPerformed
