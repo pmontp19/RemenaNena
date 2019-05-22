@@ -35,7 +35,12 @@ public class Meme {
           return nom;
     }
     
-    public void activarMemes(Etapa e){
+    public void activarMemes(Etapa e) {
+        if (lliure) {
+            Enregistrament enr = new Enregistrament(clics);
+            llibertat.add(enr);
+            clics = 0;
+        }
         lliure = false;
         Etapes_actives++;
         actives.add(e);
